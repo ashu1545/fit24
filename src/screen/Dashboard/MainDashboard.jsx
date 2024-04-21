@@ -1,9 +1,10 @@
-import { ScrollView, StyleSheet, Text, View, Image } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BannerPie from "../../../assets/Banner-Pie.png"
 import Heart from "../../../assets/Heart-Rate-Graph.png"
 import { Button, IconButton } from 'react-native-paper';
+import WorkOut_Graph from "../../../assets/WorkOut_Graph.png"
 const MainDashboard = () => {
     return (
         <SafeAreaView style={styles.container} >
@@ -16,7 +17,7 @@ const MainDashboard = () => {
                             <Text style={{ color: "black", fontSize: 20, fontWeight: "bold" }}>Ankit</Text>
                         </View>
 
-                        <View style={{marginTop:-10}}>
+                        <View style={{ marginTop: -10 }}>
                             <IconButton
                                 icon="bell-outline"
                                 iconColor="black"
@@ -74,6 +75,32 @@ const MainDashboard = () => {
                     </View>
                 </View>
 
+                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 10, marginBottom: 10 }}>
+                    <Text style={{ fontSize: 16, fontWeight: "bold" }}>Workout Progress</Text>
+                    <Button
+                        icon="chevron-down"
+                        mode="contained" theme={{ colors: { primary: '#92A3FD' } }}
+                        style={{ justifyContent: 'center' }}
+                        contentStyle={{ flexDirection: 'row-reverse' }}
+                    >
+                        Weekly
+                    </Button>
+                </View>
+
+                <View style={styles.ImageContainer}>
+                    <ImageBackground
+                        source={WorkOut_Graph}
+                        style={styles.background}
+                    >
+                    </ImageBackground>
+                </View>
+                <View>
+
+                </View>
+                <View>
+
+                </View>
+
 
             </ScrollView>
         </SafeAreaView>
@@ -87,6 +114,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 20,
         gap: 20,
+        marginBottom:80
     },
     header: {
         flexDirection: "column",
@@ -164,5 +192,18 @@ const styles = StyleSheet.create({
         marginTop: 15,
         width: 200,
         height: 200
-    }
+    },
+    ImageContainer:{
+        width:"100%",
+        height:200,
+        alignItems:"center",
+        justifyContent:"center"
+    },
+    background: {
+        //flex: 1,
+        resizeMode: 'cover', // or 'stretch', 'contain', 'repeat' as per your requirement
+        justifyContent: 'center',
+        width:"100%",
+        height:"100%"
+      },
 })

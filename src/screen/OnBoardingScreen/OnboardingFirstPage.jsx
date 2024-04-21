@@ -1,16 +1,30 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Button, IconButton, Text } from 'react-native-paper';
-const OnboardingFirstPage = () => {
+
+const OnboardingFirstPage = ({ navigation }) => {
+
+
+
+    const handleGetStarted = () => {
+        console.log("hello")
+        navigation.navigate('OnBoardingScreen')
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.firstContainer}>
                 <Text style={{ fontWeight: "bold", fontSize: 40 }}>Fit24</Text>
                 <Text style={{ color: "gray" }}>EveryBody can Train</Text>
             </View>
-            <View style={styles.secondContainer}>
+            <View style={styles.secondContainer} onPress={handleGetStarted}>
                 <TouchableOpacity>
-                    <Button mode="contained-tonal" textColor='white' buttonColor='#92A3FD'  >
+                    <Button
+                        mode="contained-tonal"
+                        onPress={() => navigation.navigate('OnBoardingScreen')}
+                        textColor='white'
+                        buttonColor='#92A3FD'
+                    >
                         Get Started
                     </Button>
                 </TouchableOpacity>

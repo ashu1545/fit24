@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState , useContext } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, View, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { TextInput, Button, Text, IconButton } from 'react-native-paper';
+import { AppContext } from '../../context_api/AppContext';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+
+  const {loginStatus, setLoginStatus} = useContext(AppContext)
+
+
 
   const validateEmail = (email) => {
     return /\S+@\S+\.\S+/.test(email);
@@ -33,9 +39,17 @@ const Login = () => {
     } else {
       setPasswordError('');
     }
-    // Perform login logic here
-    console.log('Logged in successfully');
+    
+    if(email === "ashutosh1545@gmail.com" && password === "password@123"){
+        navigation.navigate('LoginFirstScreen');
+    }
+    else{
+      setPasswordError('Wrong Password');
+      setEmailError('Wrong Email');
+    }
   };
+
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -110,7 +124,7 @@ const Login = () => {
           <Text style={styles.registerText}>Don't have an account yet?</Text>
 
           <Button
-            onPress={() => console.log('Navigate to registration')}
+            onPress={() => navigation.navigate('SignUpScreen')}
             style={styles.buttonRegister}
           >
             Register

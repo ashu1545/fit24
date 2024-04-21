@@ -84,7 +84,7 @@ const Backdrop = ({ movies, scrollX }) => {
   );
 };
 
-export default function AnimatedCarusel() {
+export default function AnimatedCarusel({navigation}) {
   const [movies, setMovies] = React.useState([
     { id: 1, imageUrl: require("../../assets/SignUpIcon1.png"), title: "Improve Shape", description: "I have a low amount of body fat and need / want to build more muscle" },
     { id: 2, imageUrl: require("../../assets/SignUpIcon2.png"), title: "Lean & Tone", description: "I’m “skinny fat”. look thin but have no shape. I want to add learn muscle in the right way" },
@@ -182,7 +182,9 @@ export default function AnimatedCarusel() {
         }}
       />
       <View style={styles.secondContainer}>
-        <TouchableOpacity style={{ backgroundColor: "#92A3FD", width: "100%", justifyContent: "center", alignItems: "center", height:45, borderRadius:30,  }}>
+        <TouchableOpacity style={{ backgroundColor: "#92A3FD", width: "100%", justifyContent: "center", alignItems: "center", height:45, borderRadius:30,  }}
+         onPress={() => navigation.navigate("LoginFirstScreen")}
+        >
           <Text style={{color:"white"}}>
             Get Started
           </Text>

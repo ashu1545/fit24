@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 
 
-const OnboardingPage = () => {
+const OnboardingPage = ({navigation}) => {
     const [imageIndex, setImageIndex] = useState(0);
     const [highlightedIndex, setHighlightedIndex] = useState(null); 
     const data = [
@@ -16,8 +16,17 @@ const OnboardingPage = () => {
         const nextIndex = (imageIndex + 1) % data.length;
         setImageIndex(nextIndex);
         setHighlightedIndex(nextIndex);
-        setTimeout(() => setHighlightedIndex(null), 300); 
+        setTimeout(() => setHighlightedIndex(null), 300);
+
+        if(imageIndex === 3){
+            console.log("hello")
+            
+            navigation.navigate('LoginScreen');
+        }
+
     };
+
+    console.log(imageIndex, "data1234")
 
     return (
         <SafeAreaView style={styles.container}>

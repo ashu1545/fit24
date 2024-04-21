@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, View, SafeAreaView, Platform, StatusBar, 
 import { TextInput, Button, Text, IconButton, Checkbox } from 'react-native-paper';
 
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [firstNameError, setFirstNameError] = useState('');
@@ -51,7 +51,8 @@ const SignUp = () => {
         console.log(validationError);
         return;
       default:
-        // No validation error
+      
+        navigation.navigate('SignUpSetup');
         break;
     }
 
@@ -160,7 +161,7 @@ const SignUp = () => {
             <Text style={styles.registerText}>Don't have an account yet?</Text>
 
             <Button
-              onPress={() => console.log('Navigate to registration')}
+              onPress={() => navigation.navigate('LoginScreen')}
               style={styles.buttonRegister}
             >
               Login

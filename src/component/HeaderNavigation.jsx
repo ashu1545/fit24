@@ -3,11 +3,12 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { IconButton } from 'react-native-paper';
 
-const HeaderNavigation = ({headerText}) => {
+const HeaderNavigation = ({headerText, status}) => {
+  console.log(status)
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{backgroundColor: status ? "#92A3FD"  : "white", paddingHorizontal:status ? 20  : null}}>
       <View style={styles.header}>
-        <View style={styles.leftIcon}>
+        <View style={[styles.leftIcon, { borderColor:status ? "#92A3FD"  : "#F7F8F8"}]}>
         <IconButton
                 icon="chevron-left"
                 iconColor="black"
@@ -17,9 +18,9 @@ const HeaderNavigation = ({headerText}) => {
 
         </View>
         <View style={styles.middleText}>
-          <Text style={styles.headerText}>{headerText}</Text>
+          <Text style={[styles.headerText, {color: status ? "white" : "black"}]}>{headerText}</Text>
         </View>
-        <View style={styles.rightIcons}>
+        <View style={[styles.rightIcons,{ borderColor:status ? "#92A3FD"  : "#F7F8F8",}]}>
           
           <IconButton
                 icon="dots-horizontal"

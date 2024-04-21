@@ -3,7 +3,10 @@ import { View, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'react-n
 import { Button, Text } from 'react-native-paper';
 import Welcome from "../../../assets/WelcomeHome.png";
 
-const HomefirstScreen = () => {
+const HomefirstScreen = ({navigation}) => {
+    const handledashhboard = () => {
+        navigation.navigate('DashboardScreen')
+    }
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.firstContainer}>
@@ -18,7 +21,12 @@ const HomefirstScreen = () => {
             </View>
             <View style={styles.secondContainer}>
                 <TouchableOpacity>
-                    <Button mode="contained-tonal" textColor='white' buttonColor='#92A3FD'>
+                    <Button 
+                    mode="contained-tonal"
+                     textColor='white' 
+                     buttonColor='#92A3FD'
+                     onPress={handledashhboard}
+                     >
                         Get Started
                     </Button>
                 </TouchableOpacity>

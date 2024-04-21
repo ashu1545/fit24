@@ -6,7 +6,7 @@ import DatePickerModal from '../../component/DatePickerModal';
 
 import SignUp from "../../../assets/signUpSetup.jpg";
 
-const SignUpSetup = () => {
+const SignUpSetup = ({navigation}) => {
     const [gender, setGender] = useState('');
     const [genderError,setGenderError] = useState('');
     const [weight, setWeight] = useState('');
@@ -31,35 +31,35 @@ const SignUpSetup = () => {
             validationError = 'Please select gender';
             setGenderError(validationError);
         } else {
-            setGenderError(''); // Clear gender error when it's selected
+            setGenderError(''); 
         }
     
         if (!selectedDate) {
             validationError = 'Please select date of birth';
             setDateError(validationError);
         } else {
-            setDateError(''); // Clear date error when it's selected
+            setDateError(''); 
         }
     
         if (!weight.trim()) {
             validationError = 'Weight is required';
             setWeightError(validationError);
         } else {
-            setWeightError(''); // Clear weight error when it's provided
+            setWeightError('');
         }
     
         if (!height.trim()) {
             validationError = 'Height is required';
             setHeightError(validationError);
         } else {
-            setHeightError(''); // Clear height error when it's provided
+            setHeightError(''); 
         }
     
         if (validationError) {
             return;
         }
     
-        
+        navigation.navigate('SignUpSetting');
         console.log("data");
     };
 

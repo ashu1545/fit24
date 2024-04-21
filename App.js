@@ -1,44 +1,46 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import { StyleSheet, Text, View } from 'react-native';
-import SignUpSetup from "./src/screen/SignUp/SignUpSetup";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { AppProvider, AppContext } from "./src/context_api/AppContext";
+import OnboardingFirstPage from "./src/screen/OnBoardingScreen/OnboardingFirstPage";
 import AnimatedCarusel from "./src/component/AnimatedCarusel";
-import HeaderNavigation from "./src/component/HeaderNavigation";
-import NotificationPage from "./src/screen/Dashboard/NotificationPage";
+import OnboardingPage from "./src/screen/OnBoardingScreen/OnboardingPage";
 import Login from "./src/screen/Login/Login";
 import SignUp from "./src/screen/SignUp/SignUp";
-import OnboardingFirstPage from "./src/screen/OnBoardingScreen/OnboardingFirstPage";
-import OnboardingPage from "./src/screen/OnBoardingScreen/OnboardingPage";
+import HomefirstScreen from "./src/screen/Home/HomefirstScreen";
 import MainDashboard from "./src/screen/Dashboard/MainDashboard";
-
-
-
-const images = [
-  'https://64.media.tumblr.com/ZK0HIaCaHp0f6siybSHYGr0uo1_500.jpg',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOxmEEq5lv0RCkLxNFECZbBYnA3ZBtOlrTTg&s',
-  'https://64.media.tumblr.com/ZK0HIaCaHp0f6siybSHYGr0uo1_500.jpg',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOxmEEq5lv0RCkLxNFECZbBYnA3ZBtOlrTTg&s',
-  
-]; 
+import SignUpSetup from "./src/screen/SignUp/SignUpSetup";
 
 export default function App() {
+  
+
+  
+
+  const Stack = createStackNavigator();
   return (
-    <>
-    {/* <SignUpSetup/> */}
+    <NavigationContainer>
+      <AppProvider>
+        <Stack.Navigator>
 
-    {/* <AnimatedCarusel/> */}
 
-    {/* <HeaderNavigation /> */}
+          <Stack.Screen name="MainScreen" component={OnboardingFirstPage} options={{ headerShown: false }} />
+          <Stack.Screen name="OnBoardingScreen" component={OnboardingPage} options={{ headerShown: false }} />
+          <Stack.Screen name="LoginScreen" component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name="SignUpScreen" component={SignUp} options={{ headerShown: false }} />
 
-    {/* <NotificationPage/> */}
-    {/* <Login /> */}
-    {/* <SignUp/> */}
-    {/* <OnboardingFirstPage/> */}
-    {/* <OnboardingPage/> */}
-    <MainDashboard />
 
-      
+          <Stack.Screen name="LoginFirstScreen" component={HomefirstScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="DashboardScreen" component={MainDashboard} options={{ headerShown: false }} />
+          <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
+          <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} />
 
-    </>
+
+          
+
+        </Stack.Navigator>
+      </AppProvider>
+    </NavigationContainer>
   );
 }
 

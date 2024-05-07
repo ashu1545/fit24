@@ -7,7 +7,6 @@ const OnboardingFirstPage = ({ navigation }) => {
 
 
     const handleGetStarted = () => {
-        console.log("hello")
         navigation.navigate('OnBoardingScreen')
     };
 
@@ -23,7 +22,7 @@ const OnboardingFirstPage = ({ navigation }) => {
                         mode="contained-tonal"
                         onPress={() => navigation.navigate('OnBoardingScreen')}
                         textColor='white'
-                        buttonColor='#92A3FD'
+                        buttonColor='#EB8563'
                     >
                         Get Started
                     </Button>
@@ -40,6 +39,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         paddingHorizontal: 20,
+        backgroundColor: "#050505"
     },
     firstContainer: {
         flex: 1,

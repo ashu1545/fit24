@@ -6,10 +6,10 @@ const OnboardingPage = ({navigation}) => {
     const [imageIndex, setImageIndex] = useState(0);
     const [highlightedIndex, setHighlightedIndex] = useState(null); 
     const data = [
-        { imageUrl: require("../../../assets/Track.jpg"), text: 'Don t worry if you have trouble determining your goals, We can help you determine your goals and track your goals', label: "Track Your Goal" },
-        { imageUrl: require("../../../assets/FatBurn.jpg"), text: 'Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever', label: "Fat Burn" },
-        { imageUrl: require("../../../assets/EatWell.png"), text: 'Let s start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun', label: "Eat Well" },
-        { imageUrl: require("../../../assets/SleepWell.jpg"), text: 'Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning', label: "Improve Sleep Quality" },
+        { imageUrl: require("../../../assets/On_board.png"), text: 'Don t worry if you have trouble determining your goals, We can help you determine your goals and track your goals', label: "Track Your Goal" },
+        { imageUrl: require("../../../assets/On_board1.jpg"), text: 'Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever', label: "Fat Burn" },
+        { imageUrl: require("../../../assets/on_board2.png"), text: 'Let s start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun', label: "Eat Well" },
+        { imageUrl: require("../../../assets/on_board3.jpg"), text: 'Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning', label: "Improve Sleep Quality" },
     ];
 
     const onNextImage = () => {
@@ -58,6 +58,8 @@ const OnboardingPage = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:"#050505",
+        color:"#ffffff"
         //justifyContent: 'center',
         //alignItems: 'center',
         //paddingHorizontal:20,
@@ -86,13 +88,13 @@ const styles = StyleSheet.create({
     
     },
     imageText: {
-        color: 'black',
+        color: '#ffffff',
         fontWeight:'bold',
         fontSize:25
         
     },
     imageText1: {
-        color: 'gray',
+        color: '#ffffff',
     
         
     },
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 20,
         bottom: 20,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: '#EB8563',
         width: 70,
         height: 70,
         borderRadius: 50,
@@ -129,11 +131,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'gray'
     },
     currentDot: {
-        backgroundColor: 'yellow', // Change color as needed for the current dot
+        backgroundColor: '#EB8563', // Change color as needed for the current dot
     },
     highlighted: {
-        borderWidth: 2,
-        borderColor: 'yellow', // Change color as needed
+        borderWidth: 5,
+        borderColor: '#EB8563', // Change color as needed
     },
 });
 export default OnboardingPage;

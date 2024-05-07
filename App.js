@@ -11,6 +11,9 @@ import SignUp from "./src/screen/SignUp/SignUp";
 import HomefirstScreen from "./src/screen/Home/HomefirstScreen";
 import MainDashboard from "./src/screen/Dashboard/MainDashboard";
 import SignUpSetup from "./src/screen/SignUp/SignUpSetup";
+import NotificationPage from "./src/screen/Dashboard/NotificationPage";
+import ActivityTracker from "./src/screen/Dashboard/ActivityTracker";
+import First_Page_Work_Out from "./src/screen/Work_out_Tracker/First_Page_Work_Out";
 
 export default function App() {
   
@@ -34,8 +37,15 @@ export default function App() {
           <Stack.Screen name="DashboardScreen" component={MainDashboard} options={{ headerShown: false }} />
           <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
           <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} />
+          <Stack.Screen name="DashboardNotification" component={NotificationPage} options={{ headerShown: false }} />
+          <Stack.Screen name="DashboardActivityTracker" component={ActivityTracker} options={{ headerShown: false }} />
+
+          <Stack.Screen name="WorkOutTracker" component={First_Page_Work_Out} options={{ headerShown: false }} />
 
 
+              
+
+         
           
 
         </Stack.Navigator>

@@ -1,11 +1,11 @@
-import { ScrollView, StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Image, ImageBackground , TouchableOpacity } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BannerPie from "../../../assets/Banner-Pie.png"
 import Heart from "../../../assets/Heart-Rate-Graph.png"
 import { Button, IconButton } from 'react-native-paper';
 import WorkOut_Graph from "../../../assets/WorkOut_Graph.png"
-const MainDashboard = () => {
+const MainDashboard = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container} >
             <ScrollView >
@@ -47,8 +47,10 @@ const MainDashboard = () => {
 
                 <View style={styles.BodyMassIndex2}>
                     <View style={styles.innerBody}>
-
-                        <Text style={{ color: "black", fontSize: 14 }}>Today Target</Text>
+                         <TouchableOpacity onPress={() => navigation.navigate('DashboardNotification')}>
+                         <Text style={{ color: "black", fontSize: 14 }}>Today Target</Text>
+                         </TouchableOpacity>
+                        
 
 
                     </View >
@@ -60,7 +62,10 @@ const MainDashboard = () => {
                 </View>
 
                 <View styles={{ flexdirection: "column" }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('DashboardActivityTracker')}>
                     <Text style={{ fontSize: 20, fontWeight: "bold" }}>Activity Status</Text>
+                    </TouchableOpacity>
+                    
                     <View style={[styles.BodyMassIndex3, { marginTop: 10 }]}>
                         <View style={styles.innerBody4}>
 
@@ -87,7 +92,7 @@ const MainDashboard = () => {
                     </Button>
                 </View>
 
-                <View style={styles.ImageContainer}>
+                <View style={styles.ImageContainer} onPress= {() => navigation.navigate('WorkOutTracker')}>
                     <ImageBackground
                         source={WorkOut_Graph}
                         style={styles.background}

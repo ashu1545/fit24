@@ -7,8 +7,8 @@ export const AppProvider = ({ children }) => {
   const [loginStatus, setLoginStatus] = useState(false);
 
   return (
-    <AppContext.Provider value={{ loginStatus, setLoginStatus }}>
-      {children}
-    </AppContext.Provider>
+      <AppContext.Provider value={{ loginStatus, setLoginStatus }}>
+        {children}
+      </AppContext.Provider>
   );
 };

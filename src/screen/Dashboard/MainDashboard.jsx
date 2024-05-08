@@ -5,117 +5,146 @@ import BannerPie from "../../../assets/Banner-Pie.png"
 import Heart from "../../../assets/Heart-Rate-Graph.png"
 import { Button, IconButton } from 'react-native-paper';
 import WorkOut_Graph from "../../../assets/WorkOut_Graph.png"
+import { LinearGradient } from 'expo-linear-gradient';
+import Layout from '../../component/Layout/Layout';
+
 const MainDashboard = () => {
+    const data = {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+          {
+            data: [2500, 2000, 3000, 3500, 2200, 2800, 3200], // Sample water intake data
+            color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`, // Color for the line
+          },
+        ],
+      };
     return (
-        <SafeAreaView style={styles.container} >
-            <ScrollView >
-                <View style={styles.header}>
+        <Layout>
+            <View style={styles.header}>
 
-                    <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-                        <View>
-                            <Text style={{ color: "#ADA4A5" }}>Welcome Back,</Text>
-                            <Text style={{ color: "black", fontSize: 20, fontWeight: "bold" }}>Ankit</Text>
-                        </View>
+                <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                    <View>
+                        <Text style={{ color: "#EB8F63", fontSize: 12, lineHeight: 18 }}>Welcome Back,</Text>
+                        <Text style={{ color: "#FFFFFF", fontSize: 20, fontWeight: "bold", lineHeight: 30 }}>Ankit</Text>
+                    </View>
 
-                        <View style={{ marginTop: -10 }}>
-                            <IconButton
-                                icon="bell-outline"
-                                iconColor="black"
-                                size={25}
-                                onPress={() => console.log('Pressed')}
-                            />
-                        </View>
-
+                    <View style={{ marginTop: -10, backgroundColor: '#050505', borderRadius: 10 }}>
+                        <IconButton
+                            icon="bell-outline"
+                            iconColor="#fff"
+                            size={25}
+                            onPress={() => console.log('Pressed')}
+                        />
                     </View>
 
                 </View>
+
+            </View>
+            <LinearGradient
+                // f5ae2a
+
+                colors={['#EB8F63', '#EB8F63']}
+                style={{ borderRadius: 20 }}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 0 }}
+            >
                 <View style={styles.BodyMassIndex}>
-                    <View style={styles.innerBody}>
-                        <Text style={{ color: "white", fontWeight: "bold", fontSize: 15 }}>BMI ( Body Mass Index )</Text>
-                        <Text style={{ color: "white" }}>You have a normal Weight</Text>
+                    <View style={styles.left}>
                         <View>
+                            <Text style={{ color: "white", fontWeight: "bold", fontSize: 20 }}>BMI (Body Mass Index)</Text>
+                            <Text style={{ color: "white", fontSize: 17, marginTop: 3, marginBottom: 10 }}>You have a normal weight</Text>
+                        </View>
+                        <View style={{ width: '60%' }}>
+                            <LinearGradient
+                                colors={['#EEA4CE', '#C58BF2']} // You can adjust the colors as needed
+                                start={{ x: 0, y: 0 }}
+                                end={{ x: 1, y: 0 }}
+                                style={{ borderRadius: 50 }} // Adjust border radius as needed
+                            >
+                                <Button
+                                    mode="contained"
+                                    theme={{ colors: { primary: 'transparent' } }} // Set primary color to transparent
+                                    style={{ borderRadius: 14 }}
+                                >
+                                    View more
+                                </Button>
+                            </LinearGradient>
 
                         </View>
-                        <Button mode="contained" theme={{ colors: { primary: '#C58BF2' } }} style={{ justifyContent: 'center' }}>
-                            View more
-                        </Button>
                     </View >
                     <View style={styles.innerBody1}>
                         <Image source={BannerPie} alt="banner_Image" style={styles.bannerImage} />
                     </View>
                 </View>
 
-                <View style={styles.BodyMassIndex2}>
+            </LinearGradient>
+
+            <LinearGradient
+                colors={['#855138', '#855138']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={styles.BodyMassIndex2}
+            >
+
                     <View style={styles.innerBody}>
 
-                        <Text style={{ color: "black", fontSize: 14 }}>Today Target</Text>
+                        <Text style={{ color: "#fff", fontSize: 14 }}>Today's Target</Text>
 
 
                     </View >
                     <View style={styles.innerBody1}>
-                        <Button mode="contained" theme={{ colors: { primary: '#92A3FD' } }} style={{ justifyContent: 'center' }}>
+                        <Button mode="contained" theme={{ colors: { primary: '#EB8F63' } }} style={{ justifyContent: 'center' }}>
                             Check
                         </Button>
                     </View>
-                </View>
 
-                <View styles={{ flexdirection: "column" }}>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>Activity Status</Text>
-                    <View style={[styles.BodyMassIndex3, { marginTop: 10 }]}>
-                        <View style={styles.innerBody4}>
-
-                            <Text style={{ color: "black", fontSize: 16 }}> Heart Rate </Text>
-                            <Text style={{ color: "#92A3FD", fontSize: 16 }}> 78 BPM </Text>
+            </LinearGradient>
 
 
-                        </View >
-                        <View style={styles.innerBody5}>
-                            <Image source={Heart} alt="heart_image" style={{ width: 400, height: 60 }} />
-                        </View>
+            <View styles={{ flexdirection: "column" }}>
+                <Text style={{ fontSize: 20, fontWeight: "bold", color: '#FFFFFF', marginBottom: 8 }}>Activity Status</Text>
+
+                <View style={[styles.BodyMassIndex3, { marginTop: 10 }]}>
+                    <View style={styles.innerBody4}>
+
+                        <Text style={{ color: "#ffffff", fontSize: 16 }}> Heart Rate </Text>
+                        <Text style={{ color: "#EB8F63", fontSize: 16 }}> 78 BPM </Text>
+
+
+                    </View >
+                    <View style={styles.innerBody5}>
+                        <Image source={Heart} alt="heart_image" style={{ width: 400, height: 60 }} />
                     </View>
                 </View>
+            </View>
 
-                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 10, marginBottom: 10 }}>
-                    <Text style={{ fontSize: 16, fontWeight: "bold" }}>Workout Progress</Text>
-                    <Button
-                        icon="chevron-down"
-                        mode="contained" theme={{ colors: { primary: '#92A3FD' } }}
-                        style={{ justifyContent: 'center' }}
-                        contentStyle={{ flexDirection: 'row-reverse' }}
-                    >
-                        Weekly
-                    </Button>
-                </View>
+            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 10, marginBottom: 10 }}>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>Workout Progress</Text>
+                <Button
+                    icon="chevron-down"
+                    mode="contained" theme={{ colors: { primary: '#92A3FD' } }}
+                    style={{ justifyContent: 'center' }}
+                    contentStyle={{ flexDirection: 'row-reverse' }}
+                >
+                    Weekly
+                </Button>
+            </View>
 
-                <View style={styles.ImageContainer}>
-                    <ImageBackground
-                        source={WorkOut_Graph}
-                        style={styles.background}
-                    >
-                    </ImageBackground>
-                </View>
-                <View>
+            <View style={styles.ImageContainer}>
+                <ImageBackground
+                    source={WorkOut_Graph}
+                    style={styles.background}
+                >
+                </ImageBackground>
+            </View>
+        </Layout>
 
-                </View>
-                <View>
-
-                </View>
-
-
-            </ScrollView>
-        </SafeAreaView>
     )
 }
 
 export default MainDashboard
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingHorizontal: 20,
-        gap: 20,
-        marginBottom:80
-    },
     header: {
         flexDirection: "column",
         marginTop: 20,
@@ -124,7 +153,9 @@ const styles = StyleSheet.create({
     BodyMassIndex: {
         width: "100%",
         height: 180,
-        backgroundColor: "#92A3FD",
+        // backgroundColor: "#DA840D",
+
+
         borderRadius: 20,
         flexDirection: "row",
         // justifyContent:"center",
@@ -135,7 +166,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         width: "100%",
         height: 80,
-        backgroundColor: "#CFD6FD",
+        // backgroundColor: "#CFD6FD",
         borderRadius: 20,
         flexDirection: "row",
         // justifyContent:"center",
@@ -146,15 +177,27 @@ const styles = StyleSheet.create({
         // marginTop:20,
         width: "100%",
         height: 180,
-        backgroundColor: "#CFD6FD",
+        backgroundColor: "#855138",
         borderRadius: 20,
         flexDirection: "column",
         // justifyContent:"center",
         // alignItems: "center"
     },
+    left: {
+        width: '50%',
+        flexDirection: "column",
+        height: "100%",
+        justifyContent: "center",
+        marginLeft: 20,
+        alignContent: 'space-between',
+        gap: 10,
+        // marginRight: 14
+
+
+    },
     innerBody: {
         flexDirection: "column",
-        width: "50%",
+        width: '50%',
         height: "100%",
         justifyContent: "center",
         //alignItems:"center",
@@ -189,21 +232,21 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     bannerImage: {
-        marginTop: 15,
-        width: 200,
-        height: 200
+        marginTop: 35,
+        width: 230,
+        height: 230
     },
-    ImageContainer:{
-        width:"100%",
-        height:200,
-        alignItems:"center",
-        justifyContent:"center"
+    ImageContainer: {
+        width: "100%",
+        height: 200,
+        alignItems: "center",
+        justifyContent: "center"
     },
     background: {
         //flex: 1,
         resizeMode: 'cover', // or 'stretch', 'contain', 'repeat' as per your requirement
         justifyContent: 'center',
-        width:"100%",
-        height:"100%"
-      },
+        width: "100%",
+        height: "100%"
+    },
 })

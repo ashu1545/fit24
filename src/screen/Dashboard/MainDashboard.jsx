@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
+import { Dimensions, ZScrollView, StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BannerPie from "../../../assets/Banner-Pie.png"
@@ -7,17 +7,21 @@ import { Button, IconButton } from 'react-native-paper';
 import WorkOut_Graph from "../../../assets/WorkOut_Graph.png"
 import { LinearGradient } from 'expo-linear-gradient';
 import Layout from '../../component/Layout/Layout';
+import sleepGraph from "../../../assets/sleep_graph.png"
+import caloriesPie from "../../../assets/calories_pie.png"
+
+const screenWidth = Dimensions.get('window').width;
 
 const MainDashboard = () => {
     const data = {
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         datasets: [
-          {
-            data: [2500, 2000, 3000, 3500, 2200, 2800, 3200], // Sample water intake data
-            color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`, // Color for the line
-          },
+            {
+                data: [2500, 2000, 3000, 3500, 2200, 2800, 3200], // Sample water intake data
+                color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`, // Color for the line
+            },
         ],
-      };
+    };
     return (
         <Layout>
             <View style={styles.header}>
@@ -86,17 +90,17 @@ const MainDashboard = () => {
                 style={styles.BodyMassIndex2}
             >
 
-                    <View style={styles.innerBody}>
+                <View style={styles.innerBody}>
 
-                        <Text style={{ color: "#fff", fontSize: 14 }}>Today's Target</Text>
+                    <Text style={{ color: "#fff", fontSize: 14 }}>Today's Target</Text>
 
 
-                    </View >
-                    <View style={styles.innerBody1}>
-                        <Button mode="contained" theme={{ colors: { primary: '#EB8F63' } }} style={{ justifyContent: 'center' }}>
-                            Check
-                        </Button>
-                    </View>
+                </View >
+                <View style={styles.innerBody1}>
+                    <Button mode="contained" theme={{ colors: { primary: '#EB8F63' } }} style={{ justifyContent: 'center' }}>
+                        Check
+                    </Button>
+                </View>
 
             </LinearGradient>
 
@@ -114,6 +118,25 @@ const MainDashboard = () => {
                     </View >
                     <View style={styles.innerBody5}>
                         <Image source={Heart} alt="heart_image" style={{ width: 400, height: 60 }} />
+                    </View>
+                </View>
+            </View>
+
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginTop: 15 }}>
+                <View style={styles.div1}>
+                    <Text style={styles.text}>Welcome to React Native!</Text>
+                </View>
+                <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-around', marginLeft: 13 }}>
+                    <View style={{ flex: 1, backgroundColor: '#fff', borderRadius: 20, padding: 20, marginBottom: 10 }}>
+                        <Text style={{ color: 'gray', lineHeight: 18, fontSize: 12, marginBottom: 8 }}>Sleep</Text>
+                        <Text style={{ color: '#EB8F63', lineHeight: 21, fontWeight: 'semibold' }}>8h 20m</Text>
+                        <Image source={sleepGraph} style={{ width: 140, height: 78, marginTop: 25 }} />
+                    </View>
+
+                    <View style={{ flex: 1, backgroundColor: '#fff', borderRadius: 20, paddingHorizontal: 20, paddingTop: 20 }}>
+                        <Text style={{ color: 'gray', lineHeight: 18, fontSize: 12, marginBottom: 8 }}>Calories</Text>
+                        <Text style={{ color: '#EB8F63', lineHeight: 21, fontWeight: 'semibold' }}>760 kCal</Text>
+                        <Image source={caloriesPie} style={{ width: 120, height: 120, marginTop: 10 }} />
                     </View>
                 </View>
             </View>
@@ -249,4 +272,58 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%"
     },
+
+
+    //my own
+
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        paddingHorizontal: 10,
+    },
+    div1: {
+        // width: '45%',
+        // height: 500,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        // marginTop: 35,
+    },
+    div2Container: {
+        width: '45%',
+        marginTop: 35,
+    },
+    div2Top: {
+        height: 100,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: 'black',
+        padding: 10,
+        borderRadius: 20,
+    },
+    div2Bottom: {
+        height: 100,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
+        borderRadius: 20,
+    },
+    text: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'black',
+        marginBottom: 10,
+    },
+
+
+
+
+
 })

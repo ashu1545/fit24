@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet, View, SafeAreaView, Platform, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { TouchableOpacity, StyleSheet, View, SafeAreaView, Platform, StatusBar, KeyboardAvoidingView, ScrollView, Image } from 'react-native';
 import { TextInput, Button, Text, IconButton, Checkbox } from 'react-native-paper';
 
 
-const SignUp = ({navigation}) => {
+const SignUp = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [firstNameError, setFirstNameError] = useState('');
@@ -14,6 +14,10 @@ const SignUp = ({navigation}) => {
   const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [termsChecked, setTermsChecked] = useState(false);
+
+  const GoogleIcon = require("../../../assets/googleicon.png");
+
+  const FaceBookIcon = require("../../../assets/facebook 1.png");
 
   const validateEmail = (email) => {
     return /\S+@\S+\.\S+/.test(email);
@@ -51,7 +55,7 @@ const SignUp = ({navigation}) => {
         console.log(validationError);
         return;
       default:
-      
+
         navigation.navigate('SignUpSetup');
         break;
     }
@@ -67,8 +71,8 @@ const SignUp = ({navigation}) => {
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
           <View style={styles.form}>
             <View style={styles.toptext}>
-              <Text style={styles.topText1}>Hey there,</Text>
-              <Text style={styles.topText2}>Create an Account</Text>
+              <Text style={[styles.topText1, { color: "#ffffff" }]}>Hey there,</Text>
+              <Text style={[styles.topText2, { color: "#ffffff" }]}>Create an Account</Text>
             </View>
             <TextInput
               mode="outlined"
@@ -76,7 +80,7 @@ const SignUp = ({navigation}) => {
               value={firstName}
               onChangeText={(text) => setFirstName(text)}
               error={!!firstNameError}
-              left={<TextInput.Icon icon="account" />}
+              left={<TextInput.Icon icon="account" color="#EB8563" />}
             />
             <TextInput
               mode="outlined"
@@ -84,7 +88,7 @@ const SignUp = ({navigation}) => {
               value={lastName}
               onChangeText={(text) => setLastName(text)}
               error={!!lastNameError}
-              left={<TextInput.Icon icon="account-circle" />}
+              left={<TextInput.Icon icon="account-circle" color="#EB8563" />}
             />
             <TextInput
               mode="outlined"
@@ -92,7 +96,7 @@ const SignUp = ({navigation}) => {
               value={email}
               onChangeText={(text) => setEmail(text)}
               error={!!emailError}
-              left={<TextInput.Icon icon="email" />}
+              left={<TextInput.Icon icon="email" color="#EB8563" />}
             />
             {!!emailError && <Text style={styles.error}>{emailError}</Text>}
 
@@ -103,8 +107,8 @@ const SignUp = ({navigation}) => {
               onChangeText={(text) => setPassword(text)}
               error={!!passwordError}
               secureTextEntry={!showPassword} // Toggle secureTextEntry based on showPassword state
-              left={<TextInput.Icon icon="lock" />}
-              right={<TextInput.Icon icon={showPassword ? 'eye-off' : 'eye'} onPress={() => setShowPassword(!showPassword)} />} // Toggle icon based on showPassword state
+              left={<TextInput.Icon icon="lock" color="#EB8563" />}
+              right={<TextInput.Icon icon={showPassword ? 'eye-off' : 'eye'} onPress={() => setShowPassword(!showPassword)} color="#EB8563" />} // Toggle icon based on showPassword state
             />
             {!!passwordError && <Text style={styles.error}>{passwordError}</Text>}
 
@@ -112,9 +116,11 @@ const SignUp = ({navigation}) => {
               <Checkbox
                 status={termsChecked ? 'checked' : 'unchecked'}
                 onPress={() => setTermsChecked(!termsChecked)}
-                color="blue"
+                color="white"
+                style={{ backgroundColor: "white" }}
+                theme={"white"}
               />
-              <Text style={styles.termsText}>I agree to the Terms and Conditions</Text>
+              <Text style={[styles.termsText, { color: "#ffffff" }]}>I agree to the Terms and Conditions</Text>
             </View>
           </View>
         </ScrollView>
@@ -136,24 +142,15 @@ const SignUp = ({navigation}) => {
             <Text style={styles.separatorLine}>________________________</Text>
           </View>
           <View style={styles.buttonContainer}>
-            <View style={styles.IconButton}>
-              <IconButton
-                icon="google"
-                iconColor="blue"
-                size={40}
-                onPress={() => console.log('Pressed')}
-              />
+            <TouchableOpacity style={styles.IconButton}>
 
-            </View>
-            <View style={styles.IconButton}>
-              <IconButton
-                icon="facebook"
-                iconColor="blue"
-                size={40}
-                onPress={() => console.log('Pressed')}
-              />
+              <Image source={GoogleIcon} style={{ width: 40, height: 40 }} />
 
-            </View>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.IconButton}>
+
+              <Image source={FaceBookIcon} style={{ width: 40, height: 40 }} />
+            </TouchableOpacity>
 
 
           </View>
@@ -182,6 +179,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     paddingHorizontal: 20,
+    backgroundColor: "#090909",
     width: "100%"
   },
   scrollViewContent: {
@@ -209,6 +207,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 10,
+    backgroundColor: "#EB8563"
   },
   error: {
     color: 'red',
@@ -218,21 +217,23 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    color: "gray",
+    color: "#ffffff",
     marginVertical: 10,
   },
   separatorLine: {
     flex: 1,
     height: 1,
-    backgroundColor: 'gray',
+    backgroundColor: '#ffffff',
+
   },
   separatorText: {
     marginHorizontal: 10,
-    color: 'gray',
+    color: '#ffffff',
   },
   registerText: {
     textAlign: "center",
     marginVertical: 10,
+    color: "#ffffff"
   },
   Register: {
     flexDirection: "row",

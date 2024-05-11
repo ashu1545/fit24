@@ -104,8 +104,8 @@ export default function AnimatedCarusel({navigation}) {
       {/* <StatusBar hidden /> */}
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", flexDirection: "column",marginTop:20 }}>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }} >What is your goal ?</Text>
-        <Text style={{ color: "#7B6F72", fontSize: 14, textAlign: "center" }}>It will help us to choose a best program for you</Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold",color:"#ffffff" }} >What is your goal ?</Text>
+        <Text style={{ color: "#7B6F72", fontSize: 14, textAlign: "center",color:"#ffffff" }}>It will help us to choose a best program for you</Text>
       </View>
       <Animated.FlatList
         showsHorizontalScrollIndicator={false}
@@ -150,7 +150,7 @@ export default function AnimatedCarusel({navigation}) {
                   //padding: 50,
 
                   //transform: [{ translateY }],
-                  backgroundColor: '#92A3FD',
+                  backgroundColor: '#EB8563',
                   alignItems: "center",
                   justifyContent: "center",
                   height: 500,
@@ -182,10 +182,10 @@ export default function AnimatedCarusel({navigation}) {
         }}
       />
       <View style={styles.secondContainer}>
-        <TouchableOpacity style={{ backgroundColor: "#92A3FD", width: "100%", justifyContent: "center", alignItems: "center", height:45, borderRadius:30,  }}
+        <TouchableOpacity style={{ backgroundColor: "#EB8563", width: "100%", justifyContent: "center", alignItems: "center", height:45, borderRadius:30,  }}
          onPress={() => navigation.navigate("LoginFirstScreen")}
         >
-          <Text style={{color:"white"}}>
+          <Text style={{color:"#ffffff"}}>
             Get Started
           </Text>
         </TouchableOpacity>
@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    backgroundColor:"#090909"
   },
   paragraph: {
     margin: 24,
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
     height: 200
   },
   Imagecontainer: {
-    backgroundColor: "white"
+    backgroundColor: "#090909"
   },
   secondContainer: {
 

@@ -29,7 +29,8 @@ const DatePickerModal = ({ date, setDate }) => {
         onFocus={showDatePickerModal}
         value={date.toDateString()} 
         editable={true} 
-        left={<TextInput.Icon icon="calendar" />}
+        left={<TextInput.Icon icon="calendar" color="#EB8563" />}
+        style={{color:"#ffffff"}}
       />
       {showDatePicker && (
         <DateTimePicker
@@ -39,6 +40,7 @@ const DatePickerModal = ({ date, setDate }) => {
           is24Hour={true}
           display="default"
           onChange={onChange}
+          style={{color:"#ffffff"}}
           onTouchCancel={hideDatePickerModal} // To handle the cancel event on Android
         />
       )}

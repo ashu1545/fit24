@@ -5,6 +5,7 @@ import { TextInput, Button, Text, SegmentedButtons } from 'react-native-paper';
 import DatePickerModal from '../../component/DatePickerModal';
 
 import SignUp from "../../../assets/signUpSetup.jpg";
+import Workout23 from "../../../assets/Workout_Setup23.jpg";
 
 const SignUpSetup = ({navigation}) => {
     const [gender, setGender] = useState('');
@@ -96,13 +97,13 @@ const SignUpSetup = ({navigation}) => {
             <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null}>
                 <ScrollView contentContainerStyle={styles.scrollViewContent}>
                     <View style={styles.imageContainer}>
-                        <Image source={SignUp} style={styles.image} resizeMode="cover" />
+                        <Image source={Workout23} style={styles.image} resizeMode="cover" />
                     </View>
                     <View style={styles.form}>
                         <View style={styles.toptext}>
 
-                            <Text style={styles.topText2}>Let’s complete your profile</Text>
-                            <Text style={styles.topText1}>It will help us to know more about you!</Text>
+                            <Text style={[styles.topText2,{color:"#ffffff"}]}>Let’s complete your profile</Text>
+                            <Text style={[styles.topText1,{color:"#ffffff"}]}>It will help us to know more about you!</Text>
                         </View>
 
                         <View>
@@ -123,7 +124,8 @@ const SignUpSetup = ({navigation}) => {
                                     },
 
                                 ]}
-                                style={styles.segmentedButtonContainer}
+                                theme={{ colors: { primary: 'white' } }}
+                                style={[styles.segmentedButtonContainer,{color:"white"}]}
                             />
                             {!!genderError && <Text style={styles.error}>{genderError}</Text>}
                         </View>
@@ -143,7 +145,7 @@ const SignUpSetup = ({navigation}) => {
                             onChangeText={(text) => handleWeightChange(text)}
                             error={!!weightError}
                             keyboardType="numeric"
-                            left={<TextInput.Icon icon="weight-kilogram" />}
+                            left={<TextInput.Icon icon="weight-kilogram" color="#EB8563" />}
                         />
                         {!!weightError && <Text style={styles.error}>{weightError}</Text>}
                         <TextInput
@@ -153,7 +155,7 @@ const SignUpSetup = ({navigation}) => {
                             onChangeText={(text) => handleChangeWeight(text) }
                             error={!!heightError}
                             keyboardType="numeric"
-                            left={<TextInput.Icon icon="human-male-height" />}
+                            left={<TextInput.Icon icon="human-male-height" color="#EB8563" />}
                         />
                         {!!heightError && <Text style={styles.error}>{heightError}</Text>}
                     </View>
@@ -184,7 +186,8 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         paddingHorizontal: 20,
-        width: "100%"
+        width: "100%",
+        backgroundColor:"#090909"
     },
     scrollViewContent: {
         flexGrow: 1,
@@ -210,6 +213,7 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 10,
+        backgroundColor:"#EB8563"
     },
     error: {
         color: 'red',

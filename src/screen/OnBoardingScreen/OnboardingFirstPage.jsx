@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import { Button, IconButton, Text } from 'react-native-paper';
+import fit24 from "../../../assets/fit24log 1.png"
 
 const OnboardingFirstPage = ({ navigation }) => {
 
@@ -13,8 +14,7 @@ const OnboardingFirstPage = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.firstContainer}>
-                <Text style={{ fontWeight: "bold", fontSize: 40 }}>Fit24</Text>
-                <Text style={{ color: "gray" }}>EveryBody can Train</Text>
+            <Image source={fit24} style={{width:200, height:100}}  resizeMode="cover" />
             </View>
             <View style={styles.secondContainer} onPress={handleGetStarted}>
                 <TouchableOpacity>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         paddingHorizontal: 20,
-        backgroundColor: "#050505"
+        backgroundColor: "#090909"
     },
     firstContainer: {
         flex: 1,

@@ -1,28 +1,24 @@
 import { Dimensions, ZScrollView, StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BannerPie from "../../../assets/Banner-Pie.png"
-import Heart from "../../../assets/Heart-Rate-Graph.png"
+import BannerPie from "../../../assets/bannerPie.svg"
+import HeartGraph from "../../../assets/heartGraph.svg"
 import { Button, IconButton } from 'react-native-paper';
-import WorkOut_Graph from "../../../assets/WorkOut_Graph.png"
 import { LinearGradient } from 'expo-linear-gradient';
 import Layout from '../../component/Layout/Layout';
-import sleepGraph from "../../../assets/sleep_graph.png"
-import caloriesPie from "../../../assets/calories_pie.png"
-import connectingDots from "../../../assets/connectingDots.png"
-
-const screenWidth = Dimensions.get('window').width;
+import SleepGraph from "../../../assets/sleepGraph.svg"
+import CaloriesPie from "../../../assets/caloriesPie.svg"
+import ConnectingDots from "../../../assets/connectingDots.svg"
+import ProgressBar from '../../component/ProgressBar';
+import graph from "../../../assets/graph.png"
+import UpArrow from "../../../assets/upArrow.svg"
+import WorkoutPic from "../../../assets/workoutPic.svg"
+import WorkoutProceedButton from "../../../assets/workoutProceedButton.svg"
+import LowerBodyWorkout from "../../../assets/lowerBodyWorkout.svg"
+import AbsWorkout from "../../../assets/absWorkout.svg"
 
 const MainDashboard = () => {
-	const data = {
-		labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-		datasets: [
-			{
-				data: [2500, 2000, 3000, 3500, 2200, 2800, 3200], // Sample water intake data
-				color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`, // Color for the line
-			},
-		],
-	};
+
 	return (
 		<Layout>
 			<View style={styles.header}>
@@ -78,7 +74,8 @@ const MainDashboard = () => {
 						</View>
 					</View >
 					<View style={styles.innerBody1}>
-						<Image source={BannerPie} alt="banner_Image" style={styles.bannerImage} />
+						{/* <Image source={BannerPie} alt="banner_Image" style={styles.bannerImage} /> */}
+						<BannerPie width={230} height={230} style={{ marginTop: 35 }} />
 					</View>
 				</View>
 
@@ -107,7 +104,9 @@ const MainDashboard = () => {
 
 
 			<View styles={{ flexdirection: "column" }}>
-				<Text style={{ fontSize: 20, fontWeight: "bold", color: '#FFFFFF', marginBottom: 8 }}>Activity Status</Text>
+				<Text style={{ fontSize: 20, fontWeight: "bold", color: '#FFFFFF', marginBottom: 8 }}>
+					Activity Status
+				</Text>
 
 				<View style={[styles.BodyMassIndex3, { marginTop: 10 }]}>
 					<View style={styles.innerBody4}>
@@ -116,10 +115,8 @@ const MainDashboard = () => {
 						<Text style={{ color: "#EB8F63", fontSize: 16 }}> 78 BPM </Text>
 
 
-					</View >
-					<View style={styles.innerBody5}>
-						<Image source={Heart} alt="heart_image" style={{ width: 400, height: 60 }} />
 					</View>
+					<HeartGraph width={'100%'} height={60} />
 				</View>
 			</View>
 
@@ -127,13 +124,15 @@ const MainDashboard = () => {
 				<View style={styles.div1} >
 					{/* <Text style={styles.text}>Welcome to React Native!</Text> */}
 					<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-						<View style={styles.contain}>
-							{/* Full box */}
-							<View style={styles.standingBox}>
-								{/* Half-filled portion */}
-								<View style={styles.halfFilled}></View>
-							</View>
-						</View>
+						<ProgressBar
+							rotationDegree='-90deg'
+							width={325}
+							height={20}
+							flexValue={1}
+							volume={'50%'}
+							marginRight={30}
+
+						/>
 						<View>
 							<View>
 								<Text style={{ color: '#1D242A', lineHeight: 18, fontSize: 12, fontWeight: 500 }}>Water Intake</Text>
@@ -144,47 +143,163 @@ const MainDashboard = () => {
 								<Text style={{ marginTop: 10, color: '#EB8F63', lineHeight: 15, fontSize: 10, letterSpacing: 0 }}>
 									Real time updates
 								</Text>
-								<View>
-									<Image source={connectingDots} />
+								<View style={{ marginTop: 20, flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+									<View>
+										{/* <Image source={connectingDots}  /> */}
+										<ConnectingDots />
+									</View>
+									<View>
+										<Text style={{ color: '#EB8F63', lineHeight: 12, fontSize: 8, fontWeight: 400 }}>6am - 8am</Text>
+										<Text style={{ color: '#C58BF2', lineHeight: 12, fontSize: 8, fontWeight: 500 }}>600ml</Text>
+
+										<Text style={{ color: '#EB8F63', lineHeight: 12, fontSize: 8, marginTop: 15, fontWeight: 400 }}>9am - 11am</Text>
+										<Text style={{ color: '#C58BF2', lineHeight: 12, fontSize: 8, fontWeight: 500 }}>500ml</Text>
+
+										<Text style={{ color: '#EB8F63', lineHeight: 12, fontSize: 8, marginTop: 16, fontWeight: 400 }}>11am - 2pm</Text>
+										<Text style={{ color: '#C58BF2', lineHeight: 12, fontSize: 8, fontWeight: 500 }}>1000ml</Text>
+
+										<Text style={{ color: '#EB8F63', lineHeight: 12, fontSize: 8, marginTop: 16, fontWeight: 400 }}>2pm - 4pm</Text>
+										<Text style={{ color: '#C58BF2', lineHeight: 12, fontSize: 8, fontWeight: 500 }}>700ml</Text>
+
+										<Text style={{ color: '#EB8F63', lineHeight: 12, fontSize: 8, marginTop: 16, fontWeight: 400 }}>4pm - now</Text>
+										<Text style={{ color: '#C58BF2', lineHeight: 12, fontSize: 8, fontWeight: 500 }}>900ml</Text>
+									</View>
 								</View>
 							</View>
 						</View>
 					</View>
 				</View>
-				<View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-around', marginLeft: 13 }}>
+
+				<View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-around', marginLeft: 23 }}>
 					<View style={{ flex: 1, backgroundColor: '#fff', borderRadius: 20, padding: 20, marginBottom: 10 }}>
-						<Text style={{ color: 'gray', lineHeight: 18, fontSize: 12, marginBottom: 8 }}>Sleep</Text>
+						<Text style={{ color: '#DDDADA', lineHeight: 18, fontSize: 12, marginBottom: 8, fontWeight: 500 }}>
+							Sleep
+						</Text>
 						<Text style={{ color: '#EB8F63', lineHeight: 21, fontWeight: 'semibold' }}>8h 20m</Text>
-						<Image source={sleepGraph} style={{ width: 140, height: 78, marginTop: 25 }} />
+						<SleepGraph width={'100%'} height={78} style={{ marginTop: 25 }} />
 					</View>
 
 					<View style={{ flex: 1, backgroundColor: '#fff', borderRadius: 20, paddingHorizontal: 20, paddingTop: 20 }}>
-						<Text style={{ color: 'gray', lineHeight: 18, fontSize: 12, marginBottom: 8 }}>Calories</Text>
+						<Text style={{ color: '#DDDADA', lineHeight: 18, fontSize: 12, marginBottom: 8, fontWeight: 500 }}>Calories</Text>
 						<Text style={{ color: '#EB8F63', lineHeight: 21, fontWeight: 'semibold' }}>760 kCal</Text>
-						<Image source={caloriesPie} style={{ width: 120, height: 120, marginTop: 10 }} />
+						<CaloriesPie width={'100%'} height={120} style={{ marginTop: 10 }} />
+
 					</View>
 				</View>
 			</View>
 
-			<View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 10, marginBottom: 10 }}>
-				<Text style={{ fontSize: 16, fontWeight: "bold" }}>Workout Progress</Text>
-				<Button
-					icon="chevron-down"
-					mode="contained" theme={{ colors: { primary: '#92A3FD' } }}
-					style={{ justifyContent: 'center' }}
-					contentStyle={{ flexDirection: 'row-reverse' }}
-				>
-					Weekly
-				</Button>
+			<View style={{ flexDirection: 'column', marginBottom: 25 }}>
+				<View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 30, marginBottom: 30 }}>
+					<Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>Workout Progress</Text>
+					<Button
+						icon="chevron-down"
+						mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
+						style={{ justifyContent: 'center' }}
+						contentStyle={{ flexDirection: 'row-reverse' }}
+					>
+						Weekly
+					</Button>
+				</View>
+
+				<View>
+					<ImageBackground source={graph} style={{ height: 172, alignItems: 'center' }}>
+
+						<View style={{ backgroundColor: '#fff', flexDirection: 'column', borderRadius: 10, padding: 10, height: 68 }}>
+							<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+								<Text style={{ color: '#EB8F63' }}>Fri, 28 May</Text>
+								<View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center', alignSelf: 'center' }}>
+									<Text>90%</Text>
+									<UpArrow width={12} height={12} style={{ marginTop: 3 }} />
+
+								</View>
+							</View>
+							<View><Text style={{ color: '#EB8F63' }}>Upperbody Workout</Text></View>
+							<View>
+								<ProgressBar
+									rotationDegree='0deg'
+									width={110}
+									height={5}
+									marginTop={4}
+									volume={'88%'}
+								/>
+							</View>
+
+						</View>
+
+
+					</ImageBackground>
+				</View>
 			</View>
 
-			<View style={styles.ImageContainer}>
-				<ImageBackground
-					source={WorkOut_Graph}
-					style={styles.background}
-				>
-				</ImageBackground>
+			<View>
+				<View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: 30, marginBottom: 30 }}>
+					<Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>Latest Workout</Text>
+					<Text style={{ color: '#EB8F63' }}>See more</Text>
+				</View>
+
+				<View style={{flexDirection: 'column', alignContent: 'space-between'}}>
+					<View style={{ backgroundColor: '#FFFFFF', flexDirection: 'row', padding: 20, borderRadius: 20, justifyContent: 'space-between'}}>
+						<WorkoutPic width={50} height={50} />
+						<View>
+							<Text style={{ color: '#DDDADA', lineHeight: 18, fontSize: 12, fontWeight: 500 }}>Fullbody Workout</Text>
+							<Text style={{ color: '#A4A9AD', lineHeight: 15, fontSize: 10, fontWeight: 400 }}>180 Calories Burn | 20minutes</Text>
+
+							<ProgressBar
+								rotationDegree='0deg'
+								width={191}
+								height={10}
+								marginTop={4}
+								volume={'48%'}
+							/>
+						</View>
+						<View>
+							{/* <Image source={workoutProceedButton} style={{ width: 54, height: 54 }} /> */}
+							<WorkoutProceedButton width={40} height={40} />
+						</View>
+					</View>
+
+					<View style={{ backgroundColor: '#FFFFFF', flexDirection: 'row', padding: 20, borderRadius: 20, justifyContent: 'space-between', marginTop: 10  }}>
+						<LowerBodyWorkout width={50} height={50} />
+						<View>
+							<Text style={{ color: '#DDDADA', lineHeight: 18, fontSize: 12, fontWeight: 500 }}>Lowerbody Workout</Text>
+							<Text style={{ color: '#A4A9AD', lineHeight: 15, fontSize: 10, fontWeight: 400 }}>200 Calories Burn | 30minutes</Text>
+
+							<ProgressBar
+								rotationDegree='0deg'
+								width={191}
+								height={10}
+								marginTop={4}
+								volume={'48%'}
+							/>
+						</View>
+						<View>
+							{/* <Image source={workoutProceedButton} style={{ width: 54, height: 54 }} /> */}
+							<WorkoutProceedButton width={40} height={40} />
+						</View>
+					</View>
+
+					<View style={{ backgroundColor: '#FFFFFF', flexDirection: 'row', padding: 20, borderRadius: 20, justifyContent: 'space-between', marginTop: 10  }}>
+						<AbsWorkout width={50} height={50} />
+						<View>
+							<Text style={{ color: '#DDDADA', lineHeight: 18, fontSize: 12, fontWeight: 500 }}>Ab Workout</Text>
+							<Text style={{ color: '#A4A9AD', lineHeight: 15, fontSize: 10, fontWeight: 400 }}>180 Calories Burn | 20minutes</Text>
+
+							<ProgressBar
+								rotationDegree='0deg'
+								width={191}
+								height={10}
+								marginTop={4}
+								volume={'48%'}
+							/>
+						</View>
+						<View>
+							{/* <Image source={workoutProceedButton} style={{ width: 54, height: 54 }} /> */}
+							<WorkoutProceedButton width={40} height={40} />
+						</View>
+					</View>
+				</View>
 			</View>
+
 		</Layout>
 
 	)
@@ -223,7 +338,7 @@ const styles = StyleSheet.create({
 
 	BodyMassIndex3: {
 		// marginTop:20,
-		width: "100%",
+		// width: "100%",
 		height: 180,
 		backgroundColor: "#855138",
 		borderRadius: 20,
@@ -266,8 +381,8 @@ const styles = StyleSheet.create({
 	},
 	innerBody5: {
 
-		width: "100%",
-		height: "70%",
+		// width: "100%",
+		// height: "70%",
 
 
 
@@ -278,11 +393,6 @@ const styles = StyleSheet.create({
 		height: "100%",
 		alignItems: "center",
 		justifyContent: "center"
-	},
-	bannerImage: {
-		marginTop: 35,
-		width: 230,
-		height: 230
 	},
 	ImageContainer: {
 		width: "100%",
@@ -309,12 +419,12 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 	div1: {
-		// width: '45%',
+		width: '45%',
 		// height: 500,
 		backgroundColor: 'white',
 		borderRadius: 20,
-		justifyContent: 'center',
-		alignItems: 'center',
+		// justifyContent: 'center',
+		// alignItems: 'center',
 		padding: 30
 		// marginTop: 35,
 	},
@@ -346,32 +456,15 @@ const styles = StyleSheet.create({
 		color: 'black',
 		marginBottom: 10,
 	},
-	contain: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		marginRight: 30
-	},
-	standingBox: {
-		width: 325,
-		height: 20,
-		backgroundColor: '#F7F8F8', // Full box color
-		transform: [{ rotate: '-90deg' }],
-		borderRadius: 50
-	},
-	halfFilled: {
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		width: '50%', // Half of the full box width
-		height: '100%',
-		backgroundColor: '#C58BF2', // Half-filled color
-		// borderRadius: 50,
-		// borderBottomRadius: 50,
-		// borderStartStartRadius: 50,
-		// borderBottomStartRadius: 20,
-		// borderBottomLeftRadius: 20
-		borderBottomLeftRadius: 50,
-		borderTopLeftRadius: 50
-	},
+
 })
+
+// { fontWeight: '100' }, // Thin
+// { fontWeight: '200' }, // Ultra Light
+// { fontWeight: '300' }, // Light
+// { fontWeight: '400' }, // Regular
+// { fontWeight: '500' }, // Medium
+// { fontWeight: '600' }, // Semibold
+// { fontWeight: '700' }, // Bold
+// { fontWeight: '800' }, // Heavy
+// { fontWeight: '900' }, // Black

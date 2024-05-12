@@ -35,10 +35,6 @@ export default function App() {
           <Stack.Screen name="DashboardScreen" component={DashboardNavigation} options={{ headerShown: false }} />
           {/* <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
           <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} /> */}
-
-
-          
-
         </Stack.Navigator>
       </AppProvider>
     </NavigationContainer>

@@ -1,19 +1,19 @@
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import HeaderNavigation from '../../component/HeaderNavigation';
-import food from "../../../assets/Food1.png";
+import HeaderNavigation from '../../../component/HeaderNavigation';
+import food from "assets/Food1.png";
 import { Button } from 'react-native-paper';
 
 const NotificationPage = () => {
     const title = "Notification";
     const uiData = [
-        { id: 1, leftImageUrl: require("../../../assets/Food1.png"), text: "Hey, it’s time for lunch", timeText: "About 1 minute ago", rightImageUrl: require("../../../assets/Three_dot.png"), color: "#92A3FD", line: true },
-        { id: 2, leftImageUrl: require("../../../assets/Not_Exer1.png"), text: "Don’t miss your lowerbody workout", timeText: "About 3 hours ago", rightImageUrl: require("../../../assets/Three_dot.png"), color: "#C58BF2", line: true },
-        { id: 3, leftImageUrl: require("../../../assets/food2.png"), text: "Hey, let’s add some meals for your b..", timeText: "About 3 hours ago", rightImageUrl: require("../../../assets/Three_dot.png"), color: "#92A3FD", line: true },
-        { id: 4, leftImageUrl: require("../../../assets/Not_Exer2.png"), text: "Congratulations, You have finished A..", timeText: "29 May", rightImageUrl: require("../../../assets/Three_dot.png"), color: "#92A3FD", line: true },
-        { id: 5, leftImageUrl: "", text: "Hey, it’s time for lunch", timeText: "8 April", rightImageUrl: require("../../../assets/Three_dot.png"), color: "#92A3FD", line: true },
-        { id: 6, leftImageUrl: require("../../../assets/Not_Exer1.png"), text: "Ups, You have missed your Lowerbo...", timeText: "3 April", rightImageUrl: require("../../../assets/Three_dot.png"), color: "#C58BF2", line: false },
+        { id: 1, leftImageUrl: require("assets/Food1.png"), text: "Hey, it’s time for lunch", timeText: "About 1 minute ago", rightImageUrl: require("assets/Three_dot.png"), color: "#92A3FD", line: true },
+        { id: 2, leftImageUrl: require("assets/Not_Exer1.png"), text: "Don’t miss your lowerbody workout", timeText: "About 3 hours ago", rightImageUrl: require("assets/Three_dot.png"), color: "#C58BF2", line: true },
+        { id: 3, leftImageUrl: require("assets/food2.png"), text: "Hey, let’s add some meals for your b..", timeText: "About 3 hours ago", rightImageUrl: require("assets/Three_dot.png"), color: "#92A3FD", line: true },
+        { id: 4, leftImageUrl: require("assets/Not_Exer2.png"), text: "Congratulations, You have finished A..", timeText: "29 May", rightImageUrl: require("assets/Three_dot.png"), color: "#92A3FD", line: true },
+        { id: 5, leftImageUrl: "", text: "Hey, it’s time for lunch", timeText: "8 April", rightImageUrl: require("assets/Three_dot.png"), color: "#92A3FD", line: true },
+        { id: 6, leftImageUrl: require("assets/Not_Exer1.png"), text: "Ups, You have missed your Lowerbo...", timeText: "3 April", rightImageUrl: require("assets/Three_dot.png"), color: "#C58BF2", line: false },
     ];
 
     const renderItem = ({ item }) => (

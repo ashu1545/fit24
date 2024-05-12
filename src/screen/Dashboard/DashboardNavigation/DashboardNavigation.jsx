@@ -1,4 +1,4 @@
-import { NavigationContainer, useNavigation } from "@react-navigation/native"
+import { NavigationContainer, useNavigation, Link } from "@react-navigation/native"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import MainDashboard from "screen/Dashboard/MainDashboard/MainDashboard"
 import ActivityTracker from "screen/Dashboard/ActivityTracker/ActivityTracker"
@@ -11,7 +11,9 @@ import DetailNav from "assets/detailNavs.svg"
 import { View, Text, TouchableOpacity } from "react-native"
 import { createStackNavigator } from '@react-navigation/stack';
 import NotificationPage from "src/screen/Dashboard/NotificationPage/NotificationPage";
-
+import Profile from "src/component/Profile/Profile"
+import ProfileIcon from "assets/profile.svg"
+import ProfileActiveIcon from "assets/profileActive.svg"
 
 const DashboardNavigation = () => {
     const Tab = createBottomTabNavigator()
@@ -33,6 +35,8 @@ const DashboardNavigation = () => {
                             iconComponent = focused ? <HomeActiveIcon /> : <HomeIcon />;
                         } else if (route.name === "Activity Tracker") {
                             iconComponent = <ActivityIcon />
+                        } else if (route.name === "Profile") {
+                            iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />
                         }
                         return iconComponent;
                     },
@@ -66,6 +70,7 @@ const DashboardNavigation = () => {
             >
                 <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
                 <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
+                <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
             </Tab.Navigator>
         </NavigationContainer>
     )

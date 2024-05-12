@@ -12,6 +12,7 @@ import HomefirstScreen from "./src/screen/Home/HomefirstScreen";
 import MainDashboard from "./src/screen/Dashboard/MainDashboard/MainDashboard";
 import SignUpSetup from "./src/screen/SignUp/SignUpSetup";
 import DashboardNavigation from "./src/screen/Dashboard/DashboardNavigation/DashboardNavigation";
+import NotificationPage from "src/screen/Dashboard/NotificationPage/NotificationPage";
 
 export default function App() {
   
@@ -33,6 +34,7 @@ export default function App() {
 
           <Stack.Screen name="LoginFirstScreen" component={HomefirstScreen} options={{ headerShown: false }} /> */}
           <Stack.Screen name="DashboardScreen" component={DashboardNavigation} options={{ headerShown: false }} />
+          <Stack.Screen name="NotificationPage" component={NotificationPage} options={{ headerShown: false }} />
           {/* <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
           <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} /> */}
         </Stack.Navigator>

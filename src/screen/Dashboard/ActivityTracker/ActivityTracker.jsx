@@ -25,7 +25,7 @@ const ActivityTracker = () => {
     <Layout>
       <View
         style={{
-          marginTop: 20,
+          marginTop: 40,
           backgroundColor: "#855138",
           borderRadius: 20,
           paddingHorizontal: 25,
@@ -35,8 +35,13 @@ const ActivityTracker = () => {
         }}
       >
         <DisplayHeader
-          left={'Today Target'}
+          left={
+            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
+              Today Target
+            </Text>
+          }
           right={<ButtonPlus width={24} height={24} />}
+          marginTop={20}
         />
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -54,7 +59,11 @@ const ActivityTracker = () => {
       </View>
 
       <DisplayHeader
-        left={'Activity Progress'}
+        left={
+          <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
+            Activity Progress
+          </Text>
+        }
         right={
           <Button
             icon="chevron-down"
@@ -170,7 +179,11 @@ const ActivityTracker = () => {
       </View>
 
       <DisplayHeader
-        left={'Latest Activity'}
+        left={
+          <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
+            Latest Activity
+          </Text>
+        }
         right={<Text style={{ color: '#EB8F63' }}>See more</Text>}
       />
 

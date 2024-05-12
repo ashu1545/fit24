@@ -9,7 +9,7 @@ import SleepGraph from "assets/sleepGraph.svg"
 import CaloriesPie from "assets/caloriesPie.svg"
 import ConnectingDots from "assets/connectingDots.svg"
 import ProgressBar from '../../../component/ProgressBar';
-import graph from "assets/graph.png"
+import graph from "assets/Graph.png"
 import UpArrow from "assets/upArrow.svg"
 import WorkoutPic from "assets/workoutPic.svg"
 import WorkoutProceedButton from "assets/workoutProceedButton.svg"
@@ -18,7 +18,7 @@ import AbsWorkout from "assets/absWorkout.svg"
 import LongCard from 'src/component/LongCard/LongCard';
 import DisplayHeader from 'src/component/DisplayHeader/DisplayHeader';
 import StatusCard from 'src/component/StatusCard/StatusCard';
-import { useNavigation } from '@react-navigation/native';
+import { Link, useNavigation } from '@react-navigation/native';
 import NotificationPage from '../NotificationPage/NotificationPage';
 
 const MainDashboard = () => {
@@ -53,26 +53,16 @@ const MainDashboard = () => {
             <Text style={{ color: "#EB8F63", fontSize: 12, lineHeight: 18 }}>Welcome Back,</Text>
             <Text style={{ color: "#FFFFFF", fontSize: 20, fontWeight: "bold", lineHeight: 30 }}>Ankit</Text>
           </View>
-          <View style={{ marginTop: -10, backgroundColor: '#050505', borderRadius: 10 }}>
-            <IconButton
-              icon="bell-outline"
-              iconColor="#fff"
-              size={25}
-              onPress={() => drawer?.current?.openDrawer()}
-            />
-            {/* <Drawer.Section title="Some title">
-              <Drawer.Item
-                label="First Item"
-                active={active === 'first'}
-                onPress={() => setActive('first')}
+          <Link to={"/NotificationPage"}>
+            <View style={{ marginTop: -10, backgroundColor: '#050505', borderRadius: 10 }}>
+              <IconButton
+                icon="bell-outline"
+                iconColor="#fff"
+                size={25}
+              // onPress={() => drawer?.current?.openDrawer()}
               />
-              <Drawer.Item
-                label="Second Item"
-                active={active === 'second'}
-                onPress={() => setActive('second')}
-              />
-            </Drawer.Section> */}
-          </View>
+            </View>
+          </Link>
 
         </View>
       </View>
@@ -123,7 +113,6 @@ const MainDashboard = () => {
         end={{ x: 1, y: 0 }}
         style={{
           marginTop: 20,
-          marginBottom: 20,
           width: "100%",
           padding: 10,
           borderRadius: 20,
@@ -131,17 +120,22 @@ const MainDashboard = () => {
         }}
       >
         <DisplayHeader
-          left={'Today Target'}
-          right={<Button mode="contained" theme={{ colors: { primary: '#EB8F63' } }} style={{ justifyContent: 'center' }}>
-            Check
-          </Button>}
+          left={
+            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
+              Today Target
+            </Text>
+          }
         />
       </LinearGradient>
 
 
       <View styles={{ flexdirection: "column" }}>
         <DisplayHeader
-          left={'Activity Status'}
+          left={
+            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
+              Activity Status
+            </Text>
+          }
         />
 
         <View style={[styles.BodyMassIndex3, { marginTop: 10 }]}>
@@ -224,7 +218,11 @@ const MainDashboard = () => {
 
       <View style={{ flexDirection: 'column', marginBottom: 25 }}>
         <DisplayHeader
-          left={'Workout Progress'}
+          left={
+            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
+              Workout Progress
+            </Text>
+          }
           right={
             <Button
               icon="chevron-down"
@@ -269,7 +267,11 @@ const MainDashboard = () => {
 
       <View>
         <DisplayHeader
-          left={'Latest Workout'}
+          left={
+            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
+              Latest Workout
+            </Text>
+          }
           right={<Text style={{ color: '#EB8F63' }}>See more</Text>}
         />
 

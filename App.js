@@ -9,8 +9,9 @@ import OnboardingPage from "./src/screen/OnBoardingScreen/OnboardingPage";
 import Login from "./src/screen/Login/Login";
 import SignUp from "./src/screen/SignUp/SignUp";
 import HomefirstScreen from "./src/screen/Home/HomefirstScreen";
-import MainDashboard from "./src/screen/Dashboard/MainDashboard";
+import MainDashboard from "./src/screen/Dashboard/MainDashboard/MainDashboard";
 import SignUpSetup from "./src/screen/SignUp/SignUpSetup";
+import DashboardNavigation from "./src/screen/Dashboard/DashboardNavigation/DashboardNavigation";
 
 export default function App() {
   
@@ -31,7 +32,7 @@ export default function App() {
 
 
           <Stack.Screen name="LoginFirstScreen" component={HomefirstScreen} options={{ headerShown: false }} /> */}
-          <Stack.Screen name="DashboardScreen" component={MainDashboard} options={{ headerShown: false }} />
+          <Stack.Screen name="DashboardScreen" component={DashboardNavigation} options={{ headerShown: false }} />
           {/* <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
           <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} /> */}
 

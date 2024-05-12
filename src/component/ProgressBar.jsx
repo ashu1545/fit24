@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react"
-import { StyleSheet, View } from "react-native"
+import { StyleSheet, View, Text } from "react-native"
 
-
-
-const ProgressBar = ({rotationDegree, width, height, flexValue, marginTop, volume, marginRight}) => {
-    // const [degree, setDegree] = useState(null)
-    // useEffect(() => {
-    //     setDegree(rotationDegree)
-    // }, [])
-
+const ProgressBar = ({ rotationDegree, width, height, flexValue, marginTop, volume, marginRight, backgroundColor, borderBottomRightRadius, borderTopRightRadius, dayOfTheWeek }) => {
     const styles = StyleSheet.create({
         contain: {
             flex: flexValue,
@@ -30,14 +23,18 @@ const ProgressBar = ({rotationDegree, width, height, flexValue, marginTop, volum
             left: 0,
             width: volume, // Half of the full box width
             height: '100%',
-            backgroundColor: '#C58BF2', // Half-filled color
+            backgroundColor: backgroundColor || '#C58BF2', // Half-filled color
             // borderRadius: 50,
             // borderBottomRadius: 50,
             // borderStartStartRadius: 50,
             // borderBottomStartRadius: 20,
-            // borderBottomLeftRadius: 20
+            // borderBottomLeftRadius: 20,
             borderBottomLeftRadius: 50,
-            borderTopLeftRadius: 50
+            borderTopLeftRadius: 50,
+
+            borderBottomRightRadius: borderBottomRightRadius,
+            borderTopRightRadius: borderTopRightRadius
+            // bottom
         },
     })
 
@@ -48,6 +45,8 @@ const ProgressBar = ({rotationDegree, width, height, flexValue, marginTop, volum
                 {/* Half-filled portion */}
                 <View style={styles.halfFilled}></View>
             </View>
+
+            {dayOfTheWeek && <Text style={{ color: '#EB8F63', marginTop: 70, fontSize: 12, lineHeight: 18, width: 30, marginLeft: 10 }}>{dayOfTheWeek}</Text>}
         </View>
     )
 }

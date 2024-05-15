@@ -24,19 +24,17 @@ export default function App() {
     <NavigationContainer  style={{ backgroundColor: '#000000' }}>
       <AppProvider>
         <Stack.Navigator>
-
-
-          {/* <Stack.Screen name="MainScreen" component={OnboardingFirstPage} options={{ headerShown: false }} />
+          <Stack.Screen name="MainScreen" component={OnboardingFirstPage} options={{ headerShown: false }} />
           <Stack.Screen name="OnBoardingScreen" component={OnboardingPage} options={{ headerShown: false }} />
           <Stack.Screen name="LoginScreen" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="SignUpScreen" component={SignUp} options={{ headerShown: false }} />
 
 
-          <Stack.Screen name="LoginFirstScreen" component={HomefirstScreen} options={{ headerShown: false }} /> */}
+          <Stack.Screen name="LoginFirstScreen" component={HomefirstScreen} options={{ headerShown: false }} />
           <Stack.Screen name="DashboardScreen" component={DashboardNavigation} options={{ headerShown: false }} />
-          <Stack.Screen name="NotificationPage" component={NotificationPage} options={{ headerShown: false }} />
-          {/* <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
-          <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} /> */}
+          
+          <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
+          <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} />
         </Stack.Navigator>
       </AppProvider>
     </NavigationContainer>

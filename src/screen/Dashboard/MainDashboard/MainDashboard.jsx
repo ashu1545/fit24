@@ -68,7 +68,6 @@ const MainDashboard = () => {
       </View>
 
       <LinearGradient
-        // f5ae2a
         colors={['#EB8F63', '#EB8F63']}
         style={{ borderRadius: 20 }}
         start={{ x: 0, y: 0 }}

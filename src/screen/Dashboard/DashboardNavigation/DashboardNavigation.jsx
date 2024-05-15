@@ -13,9 +13,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import NotificationPage from "src/screen/Dashboard/NotificationPage/NotificationPage";
 import Profile from "src/component/Profile/Profile"
 import ProfileIcon from "assets/profile.svg"
+import ProgressIcon from "assets/progressIcon.svg";
+import ProgressActiveIcon from "assets/progressActiveIcon.svg";
 import ProfileActiveIcon from "assets/profileActive.svg"
 import NotificationIcon from "assets/notificationIcon.svg"
 import { IconButton } from 'react-native-paper';
+import ProgressPhoto from "src/screen/Progress/ProgressPhoto"
 
 
 const DashboardNavigation = () => {
@@ -24,7 +27,7 @@ const DashboardNavigation = () => {
   const navigation = useNavigation()
 
   const handlePrev = () => {
-    navigation.navigate('DashboardScreen')
+    navigation.navigate("MainDashboard")
   }
 
   return (
@@ -40,8 +43,12 @@ const DashboardNavigation = () => {
               iconComponent = <ActivityIcon />
             } else if (route.name === "Profile") {
               iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />
-            } else if (route.name === "Notification") {
-              iconComponent = <NotificationIcon />
+            } 
+            // else if (route.name === "Notification") {
+            //   iconComponent = <NotificationIcon />
+            // }
+            else if (route.name === "ProgressTracker") {
+              iconComponent =  focused ? <ProgressActiveIcon /> : <ProgressIcon/>
             }
             return iconComponent;
           },
@@ -49,14 +56,16 @@ const DashboardNavigation = () => {
             {
               backgroundColor: '#1B1B1B',
               flexDirection: 'row',
-              justifyContent: 'flex-start'
+              justifyContent: 'flex-start',
+              
             }
           ],
           tabBarLabelStyle: {
             display: 'none'
           },
           headerStyle: {
-            backgroundColor: '#1B1B1B'
+            backgroundColor: '#1B1B1B',
+            elevation:0
           },
           headerTitle: (props) => {
             return (
@@ -73,10 +82,12 @@ const DashboardNavigation = () => {
           }
         })}
       >
+        
         <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
         <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
         <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
         <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} />
+        <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} />
       </Tab.Navigator>
     </NavigationContainer>
   )

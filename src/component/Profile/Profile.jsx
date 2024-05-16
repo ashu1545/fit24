@@ -1,7 +1,7 @@
 import { Button } from "react-native-paper"
 import LongCard from "src/component/LongCard/LongCard"
 import LatestActivityPicOne from "assets/latestActivityPicOne.svg"
-import Layout from "src/component/Layout/Layout"
+import Layout from "src/component/Layouts/Layout/Layout"
 import MiniCard from "src/component/MiniCard/MiniCard"
 import { View, Text } from "react-native"
 import DisplayHeader from "../DisplayHeader/DisplayHeader"

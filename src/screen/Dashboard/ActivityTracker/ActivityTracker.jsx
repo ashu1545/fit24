@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 import { Button } from 'react-native-paper';
 
 import React from 'react'
-import Layout from 'src/component/Layout/Layout';
+import Layout from 'src/component/Layouts/Layout/Layout';
 import { LinearGradient } from 'expo-linear-gradient';
 import ButtonPlus from "assets/buttonPlus.svg"
 import GlassCup from "assets/glassCup.svg"

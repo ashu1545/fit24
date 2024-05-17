@@ -1,10 +1,10 @@
 import { Button } from "react-native-paper"
-import LongCard from "src/component/LongCard/LongCard"
+import LongCard from "src/component/Cards/LongCard/LongCard"
 import LatestActivityPicOne from "assets/latestActivityPicOne.svg"
-import Layout from "src/component/Layout/Layout"
-import MiniCard from "src/component/MiniCard/MiniCard"
+import Layout from "src/component/Layouts/Layout/Layout"
+import MiniCard from "src/component/Cards/MiniCard/MiniCard"
 import { View, Text } from "react-native"
-import DisplayHeader from "../DisplayHeader/DisplayHeader"
+import DisplayHeader from "../Headers/DisplayHeader/DisplayHeader"
 import PersonalDataIcon from "assets/personalData.svg"
 import ArrowIcon from "assets/arrowIcon.svg"
 import AchievementIcon from "assets/achievementIcon.svg"
@@ -14,6 +14,8 @@ import PopupNotificationIcon from "assets/popupNotificationIcon.svg"
 import ContactUsIcon from "assets/contactUsIcon.svg"
 import PrivacyPolicyIcon from "assets/privacyPolicyIcon.svg"
 import GearSettingsIcon from "assets/gearSettingsIcon.svg"
+import HeaderLeftContent from "../Headers/HeaderLeftContent/HeaderLeftContent"
+import HeaderButton from "../Headers/HeaderButton/HeaderButton"
 
 const Profile = () => {
 
@@ -24,13 +26,7 @@ const Profile = () => {
                 title={'Stefani Wong'}
                 subtitle={'Lose a Fat Program'}
                 backgroundColor={'#1B1B1B'}
-                rightIcon={<Button
-                    mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
-                    style={{ justifyContent: 'center' }}
-                    contentStyle={{ flexDirection: 'row-reverse' }}
-                >
-                    Edit
-                </Button>}
+                rightIcon={<HeaderButton>Edit</HeaderButton>}
             />
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <MiniCard
@@ -53,33 +49,45 @@ const Profile = () => {
             <View style={{ backgroundColor: '#fff', borderRadius: 20, marginTop: 30, padding: 15 }}>
                 <Text style={{ color: '#DDDADA', lineHeight: 24, fontSize: 16, paddingLeft: 7, marginBottom: 6, fontWeight: 'semibold' }}>Account</Text>
                 <DisplayHeader
+                    left={
+                        <HeaderLeftContent
+                            headerTitle={'Personal Data'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<PersonalDataIcon style={{ marginRight: 10 }} />}
+                        />
+                    }
+                    marginTop={0}
+                    right={<ArrowIcon />}
+                />
+                <DisplayHeader
                     left={<>
-                        <PersonalDataIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Personal Data</Text>
+                        <HeaderLeftContent
+                            headerTitle={'Achievement'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<AchievementIcon style={{ marginRight: 10 }} />}
+                        />
                     </>}
                     marginTop={0}
                     right={<ArrowIcon />}
                 />
                 <DisplayHeader
                     left={<>
-                        <AchievementIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Achievement</Text>
+                        <HeaderLeftContent
+                            headerTitle={'Activity History'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<ActivityHistoryIcon style={{ marginRight: 10 }} />}
+                        />
                     </>}
                     marginTop={0}
                     right={<ArrowIcon />}
                 />
                 <DisplayHeader
                     left={<>
-                        <ActivityHistoryIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Activity History</Text>
-                    </>}
-                    marginTop={0}
-                    right={<ArrowIcon />}
-                />
-                <DisplayHeader
-                    left={<>
-                        <WorkoutProgressIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Workout Progress</Text>
+                        <HeaderLeftContent
+                            headerTitle={'Workout Progress'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<WorkoutProgressIcon style={{ marginRight: 10 }} />}
+                        />
                     </>}
                     marginTop={0}
                     right={<ArrowIcon />}
@@ -90,14 +98,16 @@ const Profile = () => {
                 <Text style={{ color: '#DDDADA', lineHeight: 24, fontSize: 16, paddingLeft: 7, marginBottom: 6, fontWeight: 'semibold' }}>Notification
                 </Text>
                 <DisplayHeader
-                    left={<>
-                        <PopupNotificationIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Pop-up Notification</Text>
-                    </>}
+                    left={
+                        <HeaderLeftContent
+                            headerTitle={'Pop-up Notification'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<PopupNotificationIcon style={{ marginRight: 10 }} />}
+                        />
+                    }
                     marginTop={0}
                     right={<ArrowIcon />}
                 />
-
             </View>
 
             <View style={{ backgroundColor: '#fff', borderRadius: 20, marginTop: 30, padding: 15 }}>
@@ -105,24 +115,33 @@ const Profile = () => {
                 </Text>
                 <DisplayHeader
                     left={<>
-                        <ContactUsIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Contact Us</Text>
+                        <HeaderLeftContent
+                            headerTitle={'Contact Us'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<ContactUsIcon style={{ marginRight: 10 }} />}
+                        />
                     </>}
                     marginTop={0}
                     right={<ArrowIcon />}
                 />
                 <DisplayHeader
                     left={<>
-                        <PrivacyPolicyIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Privacy Policy</Text>
+                        <HeaderLeftContent
+                            headerTitle={'Privacy Policy'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<PrivacyPolicyIcon style={{ marginRight: 10 }} />}
+                        />
                     </>}
                     marginTop={0}
                     right={<ArrowIcon />}
                 />
                 <DisplayHeader
                     left={<>
-                        <GearSettingsIcon style={{ marginRight: 10 }} />
-                        <Text style={{ color: '#EB8F63' }}>Settings</Text>
+                        <HeaderLeftContent
+                            headerTitle={'Settings'}
+                            headerColor={'#EB8F63'}
+                            svgIcon={<PrivacyPolicyIcon style={{ marginRight: 10 }} />}
+                        />
                     </>}
                     marginTop={0}
                     right={<ArrowIcon />}

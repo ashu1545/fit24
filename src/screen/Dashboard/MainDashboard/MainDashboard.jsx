@@ -4,22 +4,25 @@ import BannerPie from "assets/bannerPie.svg"
 import HeartGraph from "assets/heartGraph.svg"
 import { Button, IconButton, Drawer } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
-import Layout from '../../../component/Layout/Layout';
+import Layout from 'src/component/Layouts/Layout/Layout';
 import SleepGraph from "assets/sleepGraph.svg"
 import CaloriesPie from "assets/caloriesPie.svg"
 import ConnectingDots from "assets/connectingDots.svg"
 import ProgressBar from '../../../component/ProgressBar';
 import graph from "assets/Graph.png"
-import UpArrow from "assets/upArrow.svg"
 import WorkoutPic from "assets/workoutPic.svg"
 import WorkoutProceedButton from "assets/workoutProceedButton.svg"
 import LowerBodyWorkout from "assets/lowerBodyWorkout.svg"
 import AbsWorkout from "assets/absWorkout.svg"
-import LongCard from 'src/component/LongCard/LongCard';
-import DisplayHeader from 'src/component/DisplayHeader/DisplayHeader';
+import LongCard from 'src/component/Cards/LongCard/LongCard';
+import DisplayHeader from 'src/component/Headers/DisplayHeader/DisplayHeader';
 import StatusCard from 'src/component/StatusCard/StatusCard';
 import { Link, useNavigation } from '@react-navigation/native';
 import NotificationPage from '../NotificationPage/NotificationPage';
+import UpperbodyWorkoutModal from 'src/component/Modal/UpperbodyWorkoutModal';
+import HeaderLeftContent from 'src/component/Headers/HeaderLeftContent/HeaderLeftContent';
+import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
+import TooltipView from 'src/component/TooltipView/TooltipView';
 
 const MainDashboard = () => {
 
@@ -113,36 +116,34 @@ const MainDashboard = () => {
         style={{
           marginTop: 20,
           width: "100%",
-          padding: 10,
+          paddingHorizontal: 20,
           borderRadius: 20,
-          justifyContent: "space-between",
+          // justifyContent: "space-between",
         }}
       >
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Today Target
-            </Text>
-          }
+          left={<HeaderLeftContent headerTitle={'Today Target'} />}
+          marginTop={20}
         />
       </LinearGradient>
 
 
       <View styles={{ flexdirection: "column" }}>
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Activity Status
-            </Text>
-          }
+          left={<HeaderLeftContent headerTitle={'Activity Status'} />}
         />
 
-        <View style={[styles.BodyMassIndex3, { marginTop: 10 }]}>
+        <View style={[styles.BodyMassIndex3]}>
           <View style={styles.innerBody4}>
             <Text style={{ color: "#ffffff", fontSize: 16 }}> Heart Rate </Text>
             <Text style={{ color: "#EB8F63", fontSize: 16 }}> 78 BPM </Text>
           </View>
-          <HeartGraph width={'100%'} height={60} />
+          <View style={{ position: 'relative' }}>
+            <HeartGraph width={'100%'} height={60} />
+            <View style={{ position: 'absolute' }}>
+              <TooltipView text={'3mins ago'} />
+            </View>
+          </View>
         </View>
       </View>
 
@@ -217,60 +218,20 @@ const MainDashboard = () => {
 
       <View style={{ flexDirection: 'column', marginBottom: 25 }}>
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Workout Progress
-            </Text>
-          }
-          right={
-            <Button
-              icon="chevron-down"
-              mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
-              style={{ justifyContent: 'center' }}
-              contentStyle={{ flexDirection: 'row-reverse' }}
-            >
-              Weekly
-            </Button>
-          }
+          left={<HeaderLeftContent headerTitle={'Workout Progress'} />}
+          right={<HeaderButton>Weekly</HeaderButton>}
         />
 
         <View>
           <ImageBackground source={graph} style={{ height: 172, alignItems: 'center' }}>
-
-            <View style={{ backgroundColor: '#fff', flexDirection: 'column', borderRadius: 10, padding: 10, height: 68 }}>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text style={{ color: '#EB8F63' }}>Fri, 28 May</Text>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center', alignSelf: 'center' }}>
-                  <Text>90%</Text>
-                  <UpArrow width={12} height={12} style={{ marginTop: 3 }} />
-
-                </View>
-              </View>
-              <View><Text style={{ color: '#EB8F63' }}>Upperbody Workout</Text></View>
-              <View>
-                <ProgressBar
-                  rotationDegree='0deg'
-                  width={110}
-                  height={5}
-                  marginTop={4}
-                  volume={'88%'}
-                />
-              </View>
-
-            </View>
-
-
+            <UpperbodyWorkoutModal />
           </ImageBackground>
         </View>
       </View>
 
       <View>
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Latest Workout
-            </Text>
-          }
+          left={<HeaderLeftContent headerTitle={'Latest Workout'} />}
           right={<Text style={{ color: '#EB8F63' }}>See more</Text>}
         />
 

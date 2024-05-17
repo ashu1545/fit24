@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native'
 import React from 'react'
-import LayoutWithoutScrollView from 'src/component/LayoutWithoutScrollView/LayoutWithoutScrollView';
-import LongCard from 'src/component/LongCard/LongCard';
+import LayoutWithoutScrollView from 'src/component/Layouts/LayoutWithoutScrollView/LayoutWithoutScrollView';
+import LongCard from 'src/component/Cards/LongCard/LongCard';
 import ImageInNotificationOne from "assets/imageInNotificationOne.svg"
 import ImageInNotificationTwo from "assets/imageInNotificationTwo.svg"
 import ImageInNotificationThree from "assets/imageInNotificationThree.svg"

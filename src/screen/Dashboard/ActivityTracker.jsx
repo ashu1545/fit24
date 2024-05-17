@@ -88,7 +88,8 @@ const ActivityTracker = () => {
                 <Text style={{ fontSize: 16, fontWeight: "bold" }}>Activity Progress</Text>
                 <Button
                     icon="chevron-down"
-                    mode="contained" theme={{ colors: { primary: '#92A3FD' } }}
+                    mode="contained" 
+                    theme={{ colors: { primary: '#92A3FD' } }}
                     style={{ justifyContent: 'center' }}
                     contentStyle={{ flexDirection: 'row-reverse' }}
                 >

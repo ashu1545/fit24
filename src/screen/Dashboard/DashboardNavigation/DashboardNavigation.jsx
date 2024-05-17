@@ -19,6 +19,7 @@ import ProfileActiveIcon from "assets/profileActive.svg"
 import NotificationIcon from "assets/notificationIcon.svg"
 import { IconButton } from 'react-native-paper';
 import ProgressPhoto from "src/screen/Progress/ProgressPhoto"
+import WorkoutTracker from "src/screen/WorkoutTracker/WorkOutTracker"
 
 
 const DashboardNavigation = () => {
@@ -64,7 +65,7 @@ const DashboardNavigation = () => {
             display: 'none'
           },
           headerStyle: {
-            backgroundColor: '#1B1B1B',
+            backgroundColor: route.name === "WorkoutTracker" ? '#EB8F63' : '#1B1B1B',
             elevation:0
           },
           headerTitle: (props) => {
@@ -84,10 +85,11 @@ const DashboardNavigation = () => {
       >
         
         <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
-        <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
-        <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
-        <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} />
-        <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} />
+        {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
+        {/* <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} /> */}
+        {/* <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} /> */}
+        {/* <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} /> */}
+        {/* <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   )

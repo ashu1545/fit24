@@ -20,6 +20,9 @@ import StatusCard from 'src/component/StatusCard/StatusCard';
 import { Link, useNavigation } from '@react-navigation/native';
 import NotificationPage from '../NotificationPage/NotificationPage';
 import UpperbodyWorkoutModal from 'src/component/Modal/UpperbodyWorkoutModal';
+import HeaderLeftContent from 'src/component/Headers/HeaderLeftContent/HeaderLeftContent';
+import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
+import TooltipView from 'src/component/TooltipView/TooltipView';
 
 const MainDashboard = () => {
 
@@ -113,36 +116,34 @@ const MainDashboard = () => {
         style={{
           marginTop: 20,
           width: "100%",
-          padding: 10,
+          paddingHorizontal: 20,
           borderRadius: 20,
-          justifyContent: "space-between",
+          // justifyContent: "space-between",
         }}
       >
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Today Target
-            </Text>
-          }
+          left={<HeaderLeftContent headerTitle={'Today Target'} />}
+          marginTop={20}
         />
       </LinearGradient>
 
 
       <View styles={{ flexdirection: "column" }}>
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Activity Status
-            </Text>
-          }
+          left={<HeaderLeftContent headerTitle={'Activity Status'} />}
         />
 
-        <View style={[styles.BodyMassIndex3, { marginTop: 10 }]}>
+        <View style={[styles.BodyMassIndex3]}>
           <View style={styles.innerBody4}>
             <Text style={{ color: "#ffffff", fontSize: 16 }}> Heart Rate </Text>
             <Text style={{ color: "#EB8F63", fontSize: 16 }}> 78 BPM </Text>
           </View>
-          <HeartGraph width={'100%'} height={60} />
+          <View style={{ position: 'relative' }}>
+            <HeartGraph width={'100%'} height={60} />
+            <View style={{ position: 'absolute' }}>
+              <TooltipView text={'3mins ago'} />
+            </View>
+          </View>
         </View>
       </View>
 
@@ -217,21 +218,8 @@ const MainDashboard = () => {
 
       <View style={{ flexDirection: 'column', marginBottom: 25 }}>
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Workout Progress
-            </Text>
-          }
-          right={
-            <Button
-              icon="chevron-down"
-              mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
-              style={{ justifyContent: 'center' }}
-              contentStyle={{ flexDirection: 'row-reverse' }}
-            >
-              Weekly
-            </Button>
-          }
+          left={<HeaderLeftContent headerTitle={'Workout Progress'} />}
+          right={<HeaderButton>Weekly</HeaderButton>}
         />
 
         <View>
@@ -243,11 +231,7 @@ const MainDashboard = () => {
 
       <View>
         <DisplayHeader
-          left={
-            <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Latest Workout
-            </Text>
-          }
+          left={<HeaderLeftContent headerTitle={'Latest Workout'} />}
           right={<Text style={{ color: '#EB8F63' }}>See more</Text>}
         />
 

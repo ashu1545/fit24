@@ -85,11 +85,11 @@ const DashboardNavigation = () => {
       >
         
         {/* <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} /> */}
-        {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
+        {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
         <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
-        <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} />
-        <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} /> */}
-        <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} />
+        {/* <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} /> */}
+        {/* <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} /> */}
+        {/* <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   )

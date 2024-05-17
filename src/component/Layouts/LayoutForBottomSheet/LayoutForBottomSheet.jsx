@@ -15,11 +15,11 @@ const LayoutForBottomSheet = ({ children, backgroundColor }) => {
             ref={sheetRef}
             index={0}
             snapPoints={[windowHeight * 0.65, windowHeight]}
-            style={{backgroundColor: backgroundColor}}
+            style={{ backgroundColor: backgroundColor }}
         >
-            <BottomSheetView style={{backgroundColor: backgroundColor, paddingHorizontal: 20}}>
+            <BottomSheetScrollView style={{ backgroundColor: backgroundColor, paddingHorizontal: 20 }}>
                 {children}
-            </BottomSheetView>
+            </BottomSheetScrollView>
         </BottomSheet>
     )
 }

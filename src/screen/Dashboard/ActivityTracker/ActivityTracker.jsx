@@ -10,18 +10,16 @@ import Boots from "assets/boots.svg"
 import LatestActivityPicOne from "assets/latestActivityPicOne.svg"
 import LatestActivityPicTwo from "assets/latestActivityPicTwo.svg"
 import ThreeDots from "assets/threeDots.svg"
-import MiniCard from 'src/component/MiniCard/MiniCard';
-import DisplayHeader from 'src/component/DisplayHeader/DisplayHeader';
+import MiniCard from 'src/component/Cards/MiniCard/MiniCard';
+import DisplayHeader from 'src/component/Headers/DisplayHeader/DisplayHeader';
 import ProgressBar from 'src/component/ProgressBar';
-import LongCard from 'src/component/LongCard/LongCard';
+import LongCard from 'src/component/Cards/LongCard/LongCard';
+import HeaderText from 'src/component/Headers/HeaderText/HeaderText';
+import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
 
-const ActivityTracker = ({navigation}) => {
-  const uiData = [
-    { id: 1, leftImageUrl: require("assets/Drinkingwater.png"), text: "Drinking 300ml Water", timeText: "About 3 minutes ago", rightImageUrl: require("assets/Three_dot.png"), color: "#92A3FD", line: true },
-    { id: 2, leftImageUrl: require("assets/EatSnacks.png"), text: "Eat Snack (Fitbar)", timeText: "About 10 minutes ago", rightImageUrl: require("assets/Three_dot.png"), color: "#C58BF2", line: false },
-  ];
+const ActivityTracker = ({ navigation }) => {
 
-  const NotificationNavigate = () =>{
+  const NotificationNavigate = () => {
     navigation.navigate('Notification');
   }
 
@@ -40,11 +38,7 @@ const ActivityTracker = ({navigation}) => {
         }}
       >
         <DisplayHeader
-          left={
-            <Button onPress={NotificationNavigate} style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-              Today Target
-            </Button>
-          }
+          left={<HeaderText>Today Target</HeaderText>}
           right={<ButtonPlus width={24} height={24} />}
           marginTop={20}
         />
@@ -64,21 +58,8 @@ const ActivityTracker = ({navigation}) => {
       </View>
 
       <DisplayHeader
-        left={
-          <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-            Activity Progress
-          </Text>
-        }
-        right={
-          <Button
-            icon="chevron-down"
-            mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
-            style={{ justifyContent: 'center' }}
-            contentStyle={{ flexDirection: 'row-reverse' }}
-          >
-            Weekly
-          </Button>
-        }
+        left={<HeaderText>Activity Progress</HeaderText>}
+        right={<HeaderButton icon={'chevron-down'}>Weekly</HeaderButton>}
       />
 
       <View style={{ backgroundColor: '#fff', padding: 20, height: 220, borderRadius: 20 }}>
@@ -184,11 +165,7 @@ const ActivityTracker = ({navigation}) => {
       </View>
 
       <DisplayHeader
-        left={
-          <Text style={{ fontSize: 16, fontWeight: "bold", color: '#FFFFFF', lineHeight: 24, fontWeight: 600 }}>
-            Latest Activity
-          </Text>
-        }
+        left={<HeaderText>Latest Activity</HeaderText>}
         right={<Text style={{ color: '#EB8F63' }}>See more</Text>}
       />
 
@@ -212,7 +189,3 @@ const ActivityTracker = ({navigation}) => {
 }
 
 export default ActivityTracker
-
-const styles = StyleSheet.create({
-
-})

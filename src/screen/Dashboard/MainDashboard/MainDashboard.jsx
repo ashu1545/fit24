@@ -14,8 +14,8 @@ import WorkoutPic from "assets/workoutPic.svg"
 import WorkoutProceedButton from "assets/workoutProceedButton.svg"
 import LowerBodyWorkout from "assets/lowerBodyWorkout.svg"
 import AbsWorkout from "assets/absWorkout.svg"
-import LongCard from 'src/component/LongCard/LongCard';
-import DisplayHeader from 'src/component/DisplayHeader/DisplayHeader';
+import LongCard from 'src/component/Cards/LongCard/LongCard';
+import DisplayHeader from 'src/component/Headers/DisplayHeader/DisplayHeader';
 import StatusCard from 'src/component/StatusCard/StatusCard';
 import { Link, useNavigation } from '@react-navigation/native';
 import NotificationPage from '../NotificationPage/NotificationPage';

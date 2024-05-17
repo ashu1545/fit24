@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Layout from 'src/component/Layouts/Layout/Layout'
 import HeaderNavigation from 'src/component/HeaderNavigation'
-import DisplayHeader from 'src/component/DisplayHeader/DisplayHeader'
+import DisplayHeader from 'src/component/Headers/DisplayHeader/DisplayHeader'
 
 const ProgressPhoto = () => {
   return (

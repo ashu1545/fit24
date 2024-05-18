@@ -1,7 +1,7 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import LayoutWithoutScrollView from "src/component/Layouts/LayoutWithoutScrollView/LayoutWithoutScrollView"
 import LayoutForBottomSheet from "src/component/Layouts/LayoutForBottomSheet/LayoutForBottomSheet"
-import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, Dimensions, Switch, FlatList } from 'react-native'
+import { StyleSheet, Text, View, Image, ImageBackground, TouchableOpacity, Dimensions, Switch, FlatList, ScrollView } from 'react-native'
 import JumpingJack from "assets/jumpingJack.svg"
 import DisplayHeader from "src/component/Headers/DisplayHeader/DisplayHeader"
 import CardContent from "src/component/CardContent/CardContent"
@@ -23,6 +23,10 @@ import SquatPic from "assets/squatPic.svg"
 import InclinedPushupsPic from "assets/inclinedPushupsPic.svg"
 import PushUpsPic from "assets/pushUpsPic.svg"
 import CobraStretchPic from "assets/cobraStretchPic.svg"
+import ImageHolder from "src/component/Cards/ImageHolder/ImageHolder"
+import Barbell from "assets/barbell.svg"
+import SkippingRope from "assets/skippingRope.svg"
+import WaterBottle from "assets/waterBottle.svg"
 // import WarmUpPic from "assets/warmUpPic.svg"
 
 
@@ -94,6 +98,20 @@ const FullbodyWorkout = () => {
           right={<Text style={{ color: '#EB8F63' }}>5 Items</Text>}
         />
         {/* Horizontal ScrollView start */}
+        <ScrollView horizontal={true} style={{ flex: 1 }}>
+          <ImageHolder
+            image={<Barbell />}
+            imageName={'Barbell'}
+          />
+          <ImageHolder
+            image={<SkippingRope />}
+            imageName={'Skipping Rope'}
+          />
+          <ImageHolder
+            image={<WaterBottle />}
+            imageName={'Bottle 1 Liters'}
+          />
+        </ScrollView>
 
 
         {/* Horizontal ScrollView end */}
@@ -108,7 +126,7 @@ const FullbodyWorkout = () => {
           right={<Text style={{ color: '#EB8F63' }}>3 sets</Text>}
         />
 
-        <Text style={{color: '#DDDADA'}}>Set 1</Text>
+        <Text style={{ color: '#DDDADA' }}>Set 1</Text>
 
         <LongCard
           avatar={<WarmUpPic width={50} height={50} />}
@@ -159,7 +177,7 @@ const FullbodyWorkout = () => {
           rightIcon={<ExerciseProceedButton width={40} height={40} />}
         />
 
-        <Text style={{color: '#DDDADA'}}>Set 2</Text>
+        <Text style={{ color: '#DDDADA' }}>Set 2</Text>
 
         <LongCard
           avatar={<InclinedPushupsPic width={50} height={50} />}

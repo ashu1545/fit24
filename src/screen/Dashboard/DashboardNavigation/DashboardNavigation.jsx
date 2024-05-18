@@ -21,6 +21,7 @@ import { IconButton } from 'react-native-paper';
 import ProgressPhoto from "src/screen/Progress/ProgressPhoto"
 import WorkoutTracker from "src/screen/WorkoutTracker/WorkOutTracker"
 import FullbodyWorkout from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/FullbodyWorkout"
+import JumpingJack from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/JumpingJack/JumpingJack"
 
 
 const DashboardNavigation = () => {
@@ -86,7 +87,9 @@ const DashboardNavigation = () => {
       >
         
         {/* <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} /> */}
-        <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} />
+        {/* <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} /> */}
+        <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} />
+
         {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
         {/* <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} /> */}
         {/* <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} /> */}

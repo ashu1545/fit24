@@ -22,6 +22,7 @@ import ProgressPhoto from "src/screen/Progress/ProgressPhoto"
 import WorkoutTracker from "src/screen/WorkoutTracker/WorkOutTracker"
 import FullbodyWorkout from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/FullbodyWorkout"
 import JumpingJack from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/JumpingJack/JumpingJack"
+import Congratulation from "src/screen/Congratulation/Congratulation"
 
 
 const DashboardNavigation = () => {
@@ -88,7 +89,8 @@ const DashboardNavigation = () => {
         
         {/* <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} /> */}
         {/* <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} /> */}
-        <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} />
+        {/* <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} /> */}
+        <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} />
 
         {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
         {/* <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} /> */}

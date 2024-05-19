@@ -13,7 +13,7 @@ import LongCard from "src/component/Cards/LongCard/LongCard"
 import Skipping from "assets/skipping.svg"
 import WeightLifting from "assets/weightLifting.svg"
 import ViewMoreCard from "src/component/Cards/ViewMoreCard/ViewMoreCard"
-import SkippingLG from "assets/skippingLG.svg"
+// import SkippingLG from "assets/skippingLG.svg"
 import WeightLiftingLG from "assets/weightLiftingLG.svg"
 import AB_ExerciseLG from "assets/abExerciseLG.svg"
 import CardContent from "src/component/CardContent/CardContent"
@@ -103,7 +103,7 @@ const WorkoutTracker = () => {
 
           <ViewMoreCard
             left={<CardContent title={'Fullbody Workout'} subtitle={'11 Exercises | 32mins'} buttonText={'View More'} />}
-            rightAvatar={<SkippingLG style={{ marginLeft: 9 }} />}
+            // rightAvatar={<SkippingLG style={{ marginLeft: 9 }} />}
           />
           <ViewMoreCard
             left={<CardContent title={'Lowerbody Workout'} subtitle={'12 Exercises | 40mins'} buttonText={'View More'} />}

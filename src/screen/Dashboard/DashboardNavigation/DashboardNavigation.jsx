@@ -23,6 +23,7 @@ import WorkoutTracker from "src/screen/WorkoutTracker/WorkOutTracker"
 import FullbodyWorkout from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/FullbodyWorkout"
 import JumpingJack from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/JumpingJack/JumpingJack"
 import Congratulation from "src/screen/Congratulation/Congratulation"
+import WorkoutSchedule from "src/component/WorkoutSchedule/WorkoutSchedule"
 
 
 const DashboardNavigation = () => {
@@ -47,12 +48,12 @@ const DashboardNavigation = () => {
               iconComponent = <ActivityIcon />
             } else if (route.name === "Profile") {
               iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />
-            } 
+            }
             // else if (route.name === "Notification") {
             //   iconComponent = <NotificationIcon />
             // }
             else if (route.name === "ProgressTracker") {
-              iconComponent =  focused ? <ProgressActiveIcon /> : <ProgressIcon/>
+              iconComponent = focused ? <ProgressActiveIcon /> : <ProgressIcon />
             }
             return iconComponent;
           },
@@ -61,7 +62,7 @@ const DashboardNavigation = () => {
               backgroundColor: '#1B1B1B',
               flexDirection: 'row',
               justifyContent: 'flex-start',
-              
+
             }
           ],
           tabBarLabelStyle: {
@@ -69,7 +70,7 @@ const DashboardNavigation = () => {
           },
           headerStyle: {
             backgroundColor: route.name === "WorkoutTracker" ? '#EB8F63' : '#1B1B1B',
-            elevation:0
+            elevation: 0
           },
           headerTitle: (props) => {
             return (
@@ -86,11 +87,12 @@ const DashboardNavigation = () => {
           }
         })}
       >
-        
+
         {/* <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} /> */}
         {/* <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} /> */}
+        <Tab.Screen name="Workout Schedule" component={WorkoutSchedule} options={{ headerShown: true }} />
         {/* <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} /> */}
-        <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} />
+        {/* <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} /> */}
 
         {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
         {/* <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} /> */}

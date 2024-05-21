@@ -10,7 +10,7 @@ import CustomRepetitions from "src/component/CustomRepetitions/CustomRepetitions
 import FireImage from "assets/fireImage"
 import { Button } from 'react-native-paper';
 
-const JumpingJack = () => {
+const JumpingJack = ({navigation}) => {
 
   return (
     <Layout>
@@ -96,6 +96,7 @@ const JumpingJack = () => {
         mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
         contentStyle={{ paddingVertical: 15, fontSize: 16, lineHeight: 24, fontWeight: 'bold'}}
         style={{ borderRadius: 50, marginVertical: 30 }}
+        onPress={() => navigation.navigate("Congratulation")}
       >
         Save
       </Button>

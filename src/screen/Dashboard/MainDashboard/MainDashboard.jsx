@@ -17,14 +17,14 @@ import AbsWorkout from "assets/absWorkout.svg"
 import LongCard from 'src/component/Cards/LongCard/LongCard';
 import DisplayHeader from 'src/component/Headers/DisplayHeader/DisplayHeader';
 import StatusCard from 'src/component/StatusCard/StatusCard';
-import { Link, useNavigation } from '@react-navigation/native';
+
 import NotificationPage from '../NotificationPage/NotificationPage';
 import UpperbodyWorkoutModal from 'src/component/Modal/UpperbodyWorkoutModal';
 import HeaderLeftContent from 'src/component/Headers/HeaderLeftContent/HeaderLeftContent';
 import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
 import TooltipView from 'src/component/TooltipView/TooltipView';
 
-const MainDashboard = () => {
+const MainDashboard = ({navigation}) => {
 
   const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState('left');
@@ -48,6 +48,9 @@ const MainDashboard = () => {
     </View>
   );
 
+  const handleWorkoutNavigate = () =>{
+   navigation.navigate("WorkoutTracker")
+  }
   return (
     <Layout>
       <View style={styles.header}>
@@ -56,16 +59,16 @@ const MainDashboard = () => {
             <Text style={{ color: "#EB8F63", fontSize: 12, lineHeight: 18 }}>Welcome Back,</Text>
             <Text style={{ color: "#FFFFFF", fontSize: 20, fontWeight: "bold", lineHeight: 30 }}>Ankit</Text>
           </View>
-          <Link to={"/NotificationPage"}>
+          
             <View style={{ marginTop: -10, backgroundColor: '#050505', borderRadius: 10 }}>
               <IconButton
                 icon="bell-outline"
                 iconColor="#fff"
                 size={25}
-              // onPress={() => drawer?.current?.openDrawer()}
+              onPress={() => navigation.navigate("Notification")}
               />
             </View>
-          </Link>
+          
 
         </View>
       </View>
@@ -232,7 +235,7 @@ const MainDashboard = () => {
       <View>
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={'Latest Workout'} />}
-          right={<Text style={{ color: '#EB8F63' }}>See more</Text>}
+          right={<HeaderButton style={{ color: '#EB8F63' }} onPress={handleWorkoutNavigate}>See more</HeaderButton>}
         />
 
         <View style={{ flexDirection: 'column', alignContent: 'space-between' }}>

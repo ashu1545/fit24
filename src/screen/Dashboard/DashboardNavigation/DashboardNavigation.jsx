@@ -91,22 +91,22 @@ const DashboardNavigation = () => {
           }
         })}
       >
-        {/* <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} /> */}
-        {/* <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} /> */}
+        <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
+        <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} />
         <Tab.Screen name="Workout Schedule" component={WorkoutSchedule} options={{ headerShown: true }} />
-        {/* <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} /> */}
-        {/* <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} /> */}
+        <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} />
+        <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} />
 
-        {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
-        {/* <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} /> */}
-        {/* <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} /> */}
+        <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
+        <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
+        <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} />
         <Tab.Screen name="Compare" component={Compare} options={{ headerShown: true }} /> 
         <Tab.Screen name="Result" component={Result} options={{ headerShown: true }} />
         
           
         <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} />
         
-        {/* <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} /> */}
+        <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} />
       </Tab.Navigator>
     </NavigationContainer>
   )

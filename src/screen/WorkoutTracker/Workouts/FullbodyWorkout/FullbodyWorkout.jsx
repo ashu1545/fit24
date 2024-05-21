@@ -30,7 +30,7 @@ import WaterBottle from "assets/waterBottle.svg"
 // import WarmUpPic from "assets/warmUpPic.svg"
 
 
-const FullbodyWorkout = () => {
+const FullbodyWorkout = ({navigation}) => {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -208,6 +208,7 @@ const FullbodyWorkout = () => {
           mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
           contentStyle={{ paddingVertical: 15, fontSize: 16, lineHeight: 24, }}
           style={{ borderRadius: 50, marginBottom: 30 }}
+          onPress={() => navigation.navigate("JumpingJack")}
         >
           Start Workout
         </Button>

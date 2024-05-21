@@ -22,7 +22,7 @@ import HeaderButton from "src/component/Headers/HeaderButton/HeaderButton"
 
 const windowHeight = Dimensions.get('window').height;
 
-const WorkoutTracker = () => {
+const WorkoutTracker = ({navigation}) => {
   const sheetRef = useRef(null)
   const snapPoints = ["20"]
 
@@ -82,13 +82,13 @@ const WorkoutTracker = () => {
             <DisplayHeader
               left={<HeaderText>Daily Workout Schedule</HeaderText>}
               marginTop={10}
-              right={<HeaderButton>Check</HeaderButton>}
+              right={<HeaderButton onPress={() => navigation.navigate("Workout Schedule")}>Check</HeaderButton>}
             />
           </LinearGradient>
 
           <DisplayHeader
             left={<HeaderText>Upcoming Workout</HeaderText>}
-            right={<Text style={{ color: '#ffffff' }}>See more</Text>}
+            right={<Button theme={{ colors: { primary: '#ffffff' } }} onPress={() => navigation.navigate("FullbodyWorkout")}>See more</Button>}
           />
 
           <FlatList

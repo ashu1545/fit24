@@ -22,7 +22,7 @@ import HeaderButton from "src/component/Headers/HeaderButton/HeaderButton"
 
 const windowHeight = Dimensions.get('window').height;
 
-const WorkoutTracker = ({navigation}) => {
+const WorkoutTracker = ({ navigation }) => {
   const sheetRef = useRef(null)
   const snapPoints = ["20"]
 
@@ -43,14 +43,14 @@ const WorkoutTracker = ({navigation}) => {
     },
   ]
 
-  const renderWorkoutData = ({ item }) => (
-    <LongCard
-      avatar={item.avatar}
-      title={item.title}
-      backgroundColor={item.backgroundColor}
-      rightIcon={item.rightIcon}
-    />
-  )
+  // const renderWorkoutData = ({ item }) => (
+  //   <LongCard
+  //     avatar={item.avatar}
+  //     title={item.title}
+  //     backgroundColor={item.backgroundColor}
+  //     rightIcon={item.rightIcon}
+  //   />
+  // )
 
   return (
     <>
@@ -91,11 +91,22 @@ const WorkoutTracker = ({navigation}) => {
             right={<Button theme={{ colors: { primary: '#ffffff' } }} onPress={() => navigation.navigate("FullbodyWorkout")}>See more</Button>}
           />
 
-          <FlatList
+          {/* <FlatList
             data={upcomingWorkoutData}
             renderItem={renderWorkoutData}
             keyExtractor={(item) => item.id}
-          />
+          /> */}
+          {
+            upcomingWorkoutData.map((item) => (
+              <LongCard
+                key={item.id}
+                avatar={item.avatar}
+                title={item.title}
+                backgroundColor={item.backgroundColor}
+                rightIcon={item.rightIcon}
+              />
+            ))
+          }
 
           <DisplayHeader
             left={<HeaderText>What Do You Want to Train</HeaderText>}
@@ -103,7 +114,7 @@ const WorkoutTracker = ({navigation}) => {
 
           <ViewMoreCard
             left={<CardContent title={'Fullbody Workout'} subtitle={'11 Exercises | 32mins'} buttonText={'View More'} />}
-            // rightAvatar={<SkippingLG style={{ marginLeft: 9 }} />}
+          // rightAvatar={<SkippingLG style={{ marginLeft: 9 }} />}
           />
           <ViewMoreCard
             left={<CardContent title={'Lowerbody Workout'} subtitle={'12 Exercises | 40mins'} buttonText={'View More'} />}

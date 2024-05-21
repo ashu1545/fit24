@@ -28,6 +28,7 @@ import Compare from "src/screen/Progress/Campare"
 import Result from "src/screen/Progress/Result"
 import Photo from "src/screen/Progress/Photo"
 import Statistics from "src/screen/Progress/Statistics"
+import AddSchedule from "src/screen/AddSchedule/AddSchedule"
 
 
 const DashboardNavigation = () => {
@@ -91,22 +92,22 @@ const DashboardNavigation = () => {
           }
         })}
       >
-        <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
+        {/* <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
         <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} />
         <Tab.Screen name="Workout Schedule" component={WorkoutSchedule} options={{ headerShown: true }} />
         <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} />
-        <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} />
+        <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} /> */}
+        <Tab.Screen name="Add Schedule" component={AddSchedule} options={{ headerShown: true }} />
 
-        <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
-        <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
-        <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} />
-        <Tab.Screen name="Compare" component={Compare} options={{ headerShown: true }} /> 
-        <Tab.Screen name="Result" component={Result} options={{ headerShown: true }} />
-        
+        {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
+        {/* <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} /> */}
+        {/* <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} /> */}
+        {/* <Tab.Screen name="Compare" component={Compare} options={{ headerShown: true }} />  */}
+        {/* <Tab.Screen name="Result" component={Result} options={{ headerShown: true }} /> */}
           
-        <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} />
+        {/* <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} /> */}
         
-        <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} />
+        {/* <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   )

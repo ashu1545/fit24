@@ -34,17 +34,17 @@ import AddSchedule from "src/screen/AddSchedule/AddSchedule"
 const DashboardNavigation = () => {
   const Tab = createBottomTabNavigator()
   const Stack = createStackNavigator();
-  const navigation = useNavigation()
+  // console.log('navigation', navigation);
 
   const handlePrev = () => {
-    navigation.navigate("MainDashboard")
+    // navigation.navigate("MainDashboard")
   }
 
   return (
-    <NavigationContainer independent={true}>
+    <>
       <Tab.Navigator
         initialRouteName="MainDashboard"
-        screenOptions={({ route }) => ({
+        screenOptions={({ navigation, route }) => ({
           tabBarIcon: ({ focused, size, color }) => {
             let iconComponent;
             if (route.name === "MainDashboard") {
@@ -80,7 +80,7 @@ const DashboardNavigation = () => {
           headerTitle: (props) => {
             return (
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                <TouchableOpacity onPress={handlePrev}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                   <BackNavigation width={32} height={32} />
                 </TouchableOpacity>
                 <Text style={{ color: '#fff', lineHeight: 24, fontSize: 16, fontWeight: "bold" }}>{props.children}</Text>
@@ -92,24 +92,16 @@ const DashboardNavigation = () => {
           }
         })}
       >
-        {/* <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
-        <Tab.Screen name="FullbodyWorkout" component={FullbodyWorkout} options={{ headerShown: false }} />
-        <Tab.Screen name="Workout Schedule" component={WorkoutSchedule} options={{ headerShown: true }} />
-        <Tab.Screen name="JumpingJack" component={JumpingJack} options={{ headerShown: false }} />
-        <Tab.Screen name="Congratulation" component={Congratulation} options={{ headerShown: false }} /> */}
-        <Tab.Screen name="Add Schedule" component={AddSchedule} options={{ headerShown: true }} />
+        <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
+        <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
+        <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
 
-        {/* <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} /> */}
-        {/* <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} /> */}
-        {/* <Tab.Screen name="Notification" component={NotificationPage} options={{ headerShown: true }} /> */}
         {/* <Tab.Screen name="Compare" component={Compare} options={{ headerShown: true }} />  */}
         {/* <Tab.Screen name="Result" component={Result} options={{ headerShown: true }} /> */}
-          
+
         {/* <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} /> */}
-        
-        {/* <Tab.Screen name="WorkoutTracker" component={WorkoutTracker} options={{headerShown:true}} /> */}
       </Tab.Navigator>
-    </NavigationContainer>
+    </>
   )
 }
 

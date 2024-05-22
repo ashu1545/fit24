@@ -20,6 +20,7 @@ import ScheduleCard from '../ScheduleCard/ScheduleCard';
 import { Modal, Button } from 'react-native-paper';
 import MoreIcon from "assets/moreIcon.svg"
 import TimerIcon from "assets/timerIcon"
+import { useNavigation } from '@react-navigation/native';
 
 const dayAndWeekDay = [
   { id: 1, weekDay: 'Tue', day: 11 },
@@ -87,6 +88,8 @@ const WorkoutSchedule = () => {
   const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
 
+  const navigation = useNavigation()
+
   return (
     <>
       <View style={{ backgroundColor: '#1B1B1B' }}>
@@ -118,12 +121,13 @@ const WorkoutSchedule = () => {
             )}
           />
           {/* <TouchableOpacity> */}
-          <BigButtonAdd onPress={showModal} style={{ position: 'absolute', left: 320, top: 550 }} />
-          <ScheduleCard left={'#EEA4CE'} right={'#C58BF2'} style={{ position: 'absolute', top: 85, left: 320, borderRadius: 20 }}>Ab Workout, 7:30am</ScheduleCard>
+          <BigButtonAdd style={{ position: 'absolute', left: 320, top: 550 }} onPress={() => navigation.navigate('Add Schedule')} />
 
-          <ScheduleCard left={'#EEA4CE'} right={'#C58BF2'} style={{ position: 'absolute', top: 170, left: 120, borderRadius: 20 }}>Upperbody Workout, 9am</ScheduleCard>
+          <ScheduleCard showModal={showModal} left={'#EEA4CE'} right={'#C58BF2'} style={{ position: 'absolute', top: 85, left: 320, borderRadius: 20 }}>Ab Workout, 7:30am</ScheduleCard>
 
-          <ScheduleCard left={'#F7F8F8'} right={'#F7F8F8'} style={{ position: 'absolute', top: 285, left: 120, borderRadius: 20 }} textColor="#EB8F63">Lowerbody Workout, 3pm</ScheduleCard>
+          <ScheduleCard showModal={showModal} left={'#EEA4CE'} right={'#C58BF2'} style={{ position: 'absolute', top: 170, left: 120, borderRadius: 20 }}>Upperbody Workout, 9am</ScheduleCard>
+
+          <ScheduleCard showModal={showModal} left={'#F7F8F8'} right={'#F7F8F8'} style={{ position: 'absolute', top: 285, left: 120, borderRadius: 20 }} textColor="#EB8F63">Lowerbody Workout, 3pm</ScheduleCard>
 
           <Modal visible={visible} onDismiss={hideModal} style={{ position: 'absolute', backgroundColor: '#1B1B1B', width: 315, height: 243, left: 55, top: 70, borderRadius: 20, paddingHorizontal: 20 }}>
             <View style={{ marginBottom: 10 }}>
@@ -142,6 +146,7 @@ const WorkoutSchedule = () => {
                 </View>
               </View>
 
+
               <Button
                 mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
                 contentStyle={{ paddingVertical: 15, fontSize: 16, lineHeight: 24, fontWeight: 'bold' }}
@@ -149,6 +154,7 @@ const WorkoutSchedule = () => {
               >
                 Mark as Done
               </Button>
+
 
             </View>
 

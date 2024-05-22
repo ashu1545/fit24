@@ -24,7 +24,7 @@ import HeaderLeftContent from 'src/component/Headers/HeaderLeftContent/HeaderLef
 import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
 import TooltipView from 'src/component/TooltipView/TooltipView';
 
-const MainDashboard = ({navigation}) => {
+const MainDashboard = ({ navigation }) => {
 
   const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState('left');
@@ -48,8 +48,8 @@ const MainDashboard = ({navigation}) => {
     </View>
   );
 
-  const handleWorkoutNavigate = () =>{
-   navigation.navigate("WorkoutTracker")
+  const handleWorkoutNavigate = () => {
+    navigation.navigate("WorkoutTracker")
   }
   return (
     <Layout>
@@ -59,16 +59,16 @@ const MainDashboard = ({navigation}) => {
             <Text style={{ color: "#EB8F63", fontSize: 12, lineHeight: 18 }}>Welcome Back,</Text>
             <Text style={{ color: "#FFFFFF", fontSize: 20, fontWeight: "bold", lineHeight: 30 }}>Ankit</Text>
           </View>
-          
-            <View style={{ marginTop: -10, backgroundColor: '#050505', borderRadius: 10 }}>
-              <IconButton
-                icon="bell-outline"
-                iconColor="#fff"
-                size={25}
-              onPress={() => navigation.navigate("Notification")}
-              />
-            </View>
-          
+
+          <View style={{ marginTop: -10, backgroundColor: '#050505', borderRadius: 10 }}>
+            <IconButton
+              icon="bell-outline"
+              iconColor="#fff"
+              size={25}
+              onPress={() => navigation.navigate('Notification', { screen: "Notification" })}
+            />
+          </View>
+
 
         </View>
       </View>

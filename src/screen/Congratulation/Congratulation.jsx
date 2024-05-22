@@ -2,9 +2,12 @@ import Layout from "src/component/Layouts/Layout/Layout"
 import PersonCongratulated from "assets/personCongratulated"
 import { View, Text } from "react-native"
 import { Button } from 'react-native-paper';
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 
 const Congratulation = () => {
+    const navigation = useNavigation()
 
     return (
         <Layout>
@@ -23,6 +26,7 @@ const Congratulation = () => {
                 <Text style={{ color: '#fff' }}>-Jack Lalanne</Text>
             </View>
 
+            <TouchableOpacity onPress={() => navigation.navigate('DashboardScreen')}>
             <Button
                 mode="contained" theme={{ colors: { primary: '#EB8F63' } }}
                 contentStyle={{ paddingVertical: 15, fontSize: 16, lineHeight: 24, fontWeight: 'bold' }}
@@ -30,6 +34,9 @@ const Congratulation = () => {
             >
                 Back To Home
             </Button>
+
+            </TouchableOpacity>
+
         </Layout>
     )
 }

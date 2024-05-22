@@ -27,10 +27,12 @@ import ImageHolder from "src/component/Cards/ImageHolder/ImageHolder"
 import Barbell from "assets/barbell.svg"
 import SkippingRope from "assets/skippingRope.svg"
 import WaterBottle from "assets/waterBottle.svg"
+import { useNavigation } from "@react-navigation/native"
 // import WarmUpPic from "assets/warmUpPic.svg"
 
 
-const FullbodyWorkout = ({navigation}) => {
+const FullbodyWorkout = () => {
+  const navigation = useNavigation()
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -65,10 +67,12 @@ const FullbodyWorkout = ({navigation}) => {
               />
             }
             marginTop={20}
-            right={<View style={{ flexDirection: 'row' }}>
-              <Text style={{ color: '#EB8F63', marginRight: 9 }}>5/27, 09:00 AM</Text>
-              <ArrowIcon />
-            </View>}
+            right={
+              <TouchableOpacity onPress={() => navigation.navigate('Workout Schedule')} style={{ flexDirection: 'row' }}>
+                <Text style={{ color: '#EB8F63', marginRight: 9 }}>5/27, 09:00 AM</Text>
+                <ArrowIcon />
+              </TouchableOpacity>
+            }
           />
         </View>
 

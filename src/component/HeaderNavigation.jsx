@@ -56,8 +56,13 @@ const styles = StyleSheet.create({
     height:45,
     borderRadius:10,
     borderWidth:1,
+<<<<<<< HEAD
     borderColor:"#1B1B1B",
     backgroundColor:"#070707",
+=======
+    borderColor:"#F7F8F8",
+    backgroundColor:"#F7F8F8",
+>>>>>>> d294b3f8b48fac175202d352d5c65332a6e14aca
     alignItems:"center",
     justifyContent:"center"
   },

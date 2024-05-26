@@ -1,12 +1,24 @@
-import HeaderText from "../HeaderText/HeaderText"
+import { TouchableOpacity } from "react-native";
+import HeaderText from "../HeaderText/HeaderText";
+import { useNavigation } from "@react-navigation/native";
 
 const HeaderLeftContent = ({ headerTitle, svgIcon, headerColor }) => {
-    return (
-        <>
-            {svgIcon}
-            <HeaderText headerColor={headerColor}>{headerTitle}</HeaderText>
-        </>
-    )
-}
+  const navigation = useNavigation();
+  const handlePress = () => {
+    if (headerTitle === "Workout Progress") {
+      navigation.navigate("Workout Tracker", { screen: "Workout Tracker" });
+    }
+  };
 
-export default HeaderLeftContent
+  return (
+    <>
+      {svgIcon}
+
+      <TouchableOpacity onPress={handlePress}>
+        <HeaderText headerColor={headerColor}>{headerTitle}</HeaderText>
+      </TouchableOpacity>
+    </>
+  );
+};
+
+export default HeaderLeftContent;

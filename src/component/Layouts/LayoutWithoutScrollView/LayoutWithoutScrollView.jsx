@@ -1,15 +1,19 @@
-import { SafeAreaView, StatusBar, StyleSheet, View } from "react-native"
+import { SafeAreaView, StatusBar, StyleSheet, View } from "react-native";
 
-const LayoutWithoutScrollView = ({ children, backgroundColor = '#1B1B1B' }) => {
+const LayoutWithoutScrollView = ({
+  children,
+  backgroundColor = "#1B1B1B",
+  paddingHorizontal = 20,
+}) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingHorizontal: 20,
+      paddingHorizontal: paddingHorizontal,
       // gap: 20,
       // marginBottom: 80,
-      backgroundColor: backgroundColor
+      backgroundColor: backgroundColor,
     },
-  })
+  });
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -17,8 +21,7 @@ const LayoutWithoutScrollView = ({ children, backgroundColor = '#1B1B1B' }) => {
         {children}
       </SafeAreaView>
     </View>
-  )
-}
+  );
+};
 
-export default LayoutWithoutScrollView
-
+export default LayoutWithoutScrollView;

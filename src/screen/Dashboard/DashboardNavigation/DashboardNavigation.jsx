@@ -29,6 +29,11 @@ import Result from "src/screen/Progress/Result"
 import Photo from "src/screen/Progress/Photo"
 import Statistics from "src/screen/Progress/Statistics"
 import AddSchedule from "src/screen/AddSchedule/AddSchedule"
+import SearchHomeIcon from "assets/searchHomeIcon.svg"
+import Search from "src/component/Search/Search"
+import CameraIcon from "assets/cameraIcon.svg"
+import Camera from "src/component/Camera/Camera"
+import CameraActiveIcon from "assets/cameraActiveIcon.svg"
 
 
 const DashboardNavigation = () => {
@@ -51,6 +56,10 @@ const DashboardNavigation = () => {
               iconComponent = focused ? <HomeActiveIcon /> : <HomeIcon />;
             } else if (route.name === "Activity Tracker") {
               iconComponent = <ActivityIcon />
+            } else if (route.name === 'Search') {
+              iconComponent = <SearchHomeIcon style={{marginBottom: 30}} />
+            } else if (route.name === 'Camera') {
+              iconComponent = focused ? <CameraActiveIcon /> : <CameraIcon />
             } else if (route.name === "Profile") {
               iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />
             }
@@ -67,7 +76,7 @@ const DashboardNavigation = () => {
               backgroundColor: '#1B1B1B',
               flexDirection: 'row',
               justifyContent: 'flex-start',
-
+              height: 85
             }
           ],
           tabBarLabelStyle: {
@@ -94,6 +103,8 @@ const DashboardNavigation = () => {
       >
         <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
         <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
+        <Tab.Screen name="Search" component={Search} options={{ headerShown: true }} />
+        <Tab.Screen name="Camera" component={Camera} options={{ headerShown: true }} />
         <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
 
         {/* <Tab.Screen name="Compare" component={Compare} options={{ headerShown: true }} />  */}

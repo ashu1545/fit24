@@ -5,6 +5,7 @@ import BannerPie from "../../../assets/Banner-Pie.png"
 import Heart from "../../../assets/Heart-Rate-Graph.png"
 import { Button, IconButton } from 'react-native-paper';
 import WorkOut_Graph from "../../../assets/WorkOut_Graph.png"
+
 const MainDashboard = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container} >

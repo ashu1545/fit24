@@ -2,7 +2,7 @@ import { View, Text } from "react-native"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import ArrowIcon from "assets/arrowIcon.svg"
 
-const DisplayHeader = ({ left, right, marginTop = 30, flexDirection = "row", marginBottom = 20 }) => {
+const DisplayHeader = ({ left, right, marginTop = 30, flexDirection = "row", marginBottom = 20, noArrow = false }) => {
 
   return (
     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: marginTop, marginBottom: marginBottom }}>
@@ -11,7 +11,7 @@ const DisplayHeader = ({ left, right, marginTop = 30, flexDirection = "row", mar
       </View>
 
       <TouchableOpacity>
-        {right || <ArrowIcon />}
+        {right || (!noArrow && <ArrowIcon />)}
       </TouchableOpacity>
     </View>
   )

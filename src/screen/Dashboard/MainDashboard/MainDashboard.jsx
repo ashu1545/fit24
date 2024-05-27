@@ -23,6 +23,7 @@ import UpperbodyWorkoutModal from 'src/component/Modal/UpperbodyWorkoutModal';
 import HeaderLeftContent from 'src/component/Headers/HeaderLeftContent/HeaderLeftContent';
 import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
 import TooltipView from 'src/component/TooltipView/TooltipView';
+import HeaderText from 'src/component/Headers/HeaderText/HeaderText';
 
 const MainDashboard = ({ navigation }) => {
 
@@ -127,6 +128,7 @@ const MainDashboard = ({ navigation }) => {
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={'Today Target'} />}
           marginTop={20}
+          noArrow={true}
         />
       </LinearGradient>
 
@@ -134,6 +136,7 @@ const MainDashboard = ({ navigation }) => {
       <View styles={{ flexdirection: "column" }}>
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={'Activity Status'} />}
+          noArrow={true}
         />
 
         <View style={[styles.BodyMassIndex3]}>
@@ -222,7 +225,7 @@ const MainDashboard = ({ navigation }) => {
       <View style={{ flexDirection: 'column', marginBottom: 25 }}>
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={'Workout Progress'} />}
-          right={<HeaderButton>Weekly</HeaderButton>}
+          right={<HeaderButton icon={'chevron-down'}>Weekly</HeaderButton>}
         />
 
         <View>
@@ -235,10 +238,10 @@ const MainDashboard = ({ navigation }) => {
       <View>
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={'Latest Workout'} />}
-          right={<HeaderButton style={{ color: '#EB8F63' }} onPress={handleWorkoutNavigate}>See more</HeaderButton>}
+          right={<HeaderText headerColor='#EB8F63' onPress={handleWorkoutNavigate}>See more</HeaderText>}
         />
 
-        <View style={{ flexDirection: 'column', alignContent: 'space-between' }}>
+        <View style={{ flexDirection: 'column', alignContent: 'space-between', marginBottom: 20 }}>
           <LongCard
             avatar={<WorkoutPic width={50} height={50} />}
             backgroundColor={'#FFFFFF'}

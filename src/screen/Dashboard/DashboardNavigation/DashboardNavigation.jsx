@@ -19,20 +19,26 @@ import Profile from "src/component/Profile/Profile";
 import ProfileIcon from "assets/profile.svg";
 import ProgressIcon from "assets/progressIcon.svg";
 import ProgressActiveIcon from "assets/progressActiveIcon.svg";
-import ProfileActiveIcon from "assets/profileActive.svg";
-import NotificationIcon from "assets/notificationIcon.svg";
-import { IconButton } from "react-native-paper";
-import ProgressPhoto from "src/screen/Progress/ProgressPhoto";
-import WorkoutTracker from "src/screen/WorkoutTracker/WorkOutTracker";
-import FullbodyWorkout from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/FullbodyWorkout";
-import JumpingJack from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/JumpingJack/JumpingJack";
-import Congratulation from "src/screen/Congratulation/Congratulation";
-import WorkoutSchedule from "src/component/WorkoutSchedule/WorkoutSchedule";
-import Compare from "src/screen/Progress/Campare";
-import Result from "src/screen/Progress/Result";
-import Photo from "src/screen/Progress/Photo";
-import Statistics from "src/screen/Progress/Statistics";
-import AddSchedule from "src/screen/AddSchedule/AddSchedule";
+import ProfileActiveIcon from "assets/profileActive.svg"
+import NotificationIcon from "assets/notificationIcon.svg"
+import { IconButton } from 'react-native-paper';
+import ProgressPhoto from "src/screen/Progress/ProgressPhoto"
+import WorkoutTracker from "src/screen/WorkoutTracker/WorkOutTracker"
+import FullbodyWorkout from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/FullbodyWorkout"
+import JumpingJack from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/JumpingJack/JumpingJack"
+import Congratulation from "src/screen/Congratulation/Congratulation"
+import WorkoutSchedule from "src/component/WorkoutSchedule/WorkoutSchedule"
+import Compare from "src/screen/Progress/Campare"
+import Result from "src/screen/Progress/Result"
+import Photo from "src/screen/Progress/Photo"
+import Statistics from "src/screen/Progress/Statistics"
+import AddSchedule from "src/screen/AddSchedule/AddSchedule"
+import SearchHomeIcon from "assets/searchHomeIcon.svg"
+import Search from "src/component/Search/Search"
+import CameraIcon from "assets/cameraIcon.svg"
+import Camera from "src/component/Camera/Camera"
+import CameraActiveIcon from "assets/cameraActiveIcon.svg"
+
 
 const DashboardNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -53,7 +59,11 @@ const DashboardNavigation = () => {
             if (route.name === "MainDashboard") {
               iconComponent = focused ? <HomeActiveIcon /> : <HomeIcon />;
             } else if (route.name === "Activity Tracker") {
-              iconComponent = <ActivityIcon />;
+              iconComponent = focused ? <ActivityActiveIcon /> : <ActivityIcon />
+            } else if (route.name === 'Search') {
+              iconComponent = <SearchHomeIcon style={{ marginBottom: 30 }} />
+            } else if (route.name === 'Camera') {
+              iconComponent = focused ? <CameraActiveIcon /> : <CameraIcon />
             } else if (route.name === "Profile") {
               iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />;
             }
@@ -71,10 +81,11 @@ const DashboardNavigation = () => {
           },
           tabBarStyle: [
             {
-              backgroundColor: "#1B1B1B",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-            },
+              backgroundColor: '#1B1B1B',
+              flexDirection: 'row',
+              justifyContent: 'flex-start',
+              height: 85
+            }
           ],
           tabBarLabelStyle: {
             display: "none",
@@ -116,6 +127,7 @@ const DashboardNavigation = () => {
           },
         })}
       >
+<<<<<<< HEAD
         <Tab.Screen
           name="MainDashboard"
           component={MainDashboard}
@@ -131,9 +143,15 @@ const DashboardNavigation = () => {
           component={Profile}
           options={{ headerShown: true }}
         />
+=======
+        <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
+        <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
+        <Tab.Screen name="Search" component={Search} options={{ headerShown: true }} />
+        <Tab.Screen name="Camera" component={ProgressPhoto} options={{ headerShown: true }} />
+        <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
+>>>>>>> 58829d842cbc8d220a2087ced6f7800cda782a1b
 
-        {/* <Tab.Screen name="Compare" component={Compare} options={{ headerShown: true }} />  */}
-        {/* <Tab.Screen name="Result" component={Result} options={{ headerShown: true }} /> */}
+        
 
         {/* <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} /> */}
       </Tab.Navigator>

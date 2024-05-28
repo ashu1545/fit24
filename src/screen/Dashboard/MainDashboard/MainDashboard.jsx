@@ -25,12 +25,13 @@ import AbsWorkout from "assets/absWorkout.svg";
 import LongCard from "src/component/Cards/LongCard/LongCard";
 import DisplayHeader from "src/component/Headers/DisplayHeader/DisplayHeader";
 import StatusCard from "src/component/StatusCard/StatusCard";
+
 import NotificationPage from "../NotificationPage/NotificationPage";
 import UpperbodyWorkoutModal from "src/component/Modal/UpperbodyWorkoutModal";
 import HeaderLeftContent from "src/component/Headers/HeaderLeftContent/HeaderLeftContent";
 import HeaderButton from "src/component/Headers/HeaderButton/HeaderButton";
 import TooltipView from "src/component/TooltipView/TooltipView";
-
+import HeaderText from "src/component/Headers/HeaderText/HeaderText";
 const MainDashboard = ({ navigation }) => {
   const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState("left");
@@ -161,12 +162,14 @@ const MainDashboard = ({ navigation }) => {
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={"Today Target"} />}
           marginTop={20}
+          noArrow={true}
         />
       </LinearGradient>
 
       <View styles={{ flexdirection: "column" }}>
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={"Activity Status"} />}
+          noArrow={true}
         />
 
         <View style={[styles.BodyMassIndex3]}>
@@ -417,13 +420,13 @@ const MainDashboard = ({ navigation }) => {
       <View style={{ flexDirection: "column", marginBottom: 25 }}>
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={"Workout Progress"} />}
-          right={<HeaderButton>Weekly</HeaderButton>}
+          right={<HeaderButton icon={"chevron-down"}>Weekly</HeaderButton>}
         />
 
         <View>
           <ImageBackground
             source={graph}
-            style={{ height: 172, alignItems: "center" }}
+            style={{ height: 200, alignItems: "center" }}
           >
             <UpperbodyWorkoutModal />
           </ImageBackground>
@@ -434,17 +437,18 @@ const MainDashboard = ({ navigation }) => {
         <DisplayHeader
           left={<HeaderLeftContent headerTitle={"Latest Workout"} />}
           right={
-            <HeaderButton
-              style={{ color: "#EB8F63" }}
-              onPress={handleWorkoutNavigate}
-            >
+            <HeaderText headerColor="#EB8F63" onPress={handleWorkoutNavigate}>
               See more
-            </HeaderButton>
+            </HeaderText>
           }
         />
 
         <View
-          style={{ flexDirection: "column", alignContent: "space-between" }}
+          style={{
+            flexDirection: "column",
+            alignContent: "space-between",
+            marginBottom: 20,
+          }}
         >
           <LongCard
             avatar={<WorkoutPic width={50} height={50} />}

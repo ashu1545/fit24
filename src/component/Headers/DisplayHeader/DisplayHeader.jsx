@@ -21,7 +21,9 @@ const DisplayHeader = ({
     >
       <View style={{ flexDirection: flexDirection }}>{left}</View>
 
-      <TouchableOpacity>{right || <ArrowIcon />}</TouchableOpacity>
+      <TouchableOpacity>
+        {right || (!noArrow && <ArrowIcon />)}
+      </TouchableOpacity>
     </View>
   );
 };

@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Layout from 'src/component/Layouts/Layout/Layout'
 import Statistics from './Statistics'
 
+
+
 const Result = () => {
   const [activeButton, setActiveButton] = useState('Statistics')
 
@@ -16,13 +18,13 @@ const Result = () => {
         <TouchableOpacity
           style={[
             styles.button,
-            { backgroundColor: activeButton === 'Statistics' ? "#EB8F63" : "#ddd" }
+            { backgroundColor: activeButton === 'Statistics' ? "#EB8F63" : "#ddd", }
           ]}
           onPress={() => handlePress('Statistics')}
         >
           <Text style={[
             styles.buttonText,
-            { color: activeButton === 'Statistics' ? "#ffffff" : "#EB8F63" }
+            { color: activeButton === 'Statistics' ? "#ffffff" : "#EB8F63", }
           ]}>
             Statistics
           </Text>
@@ -59,15 +61,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderRadius: 20,
     width: "100%",
+    padding:6
   },
   button: {
     width: "40%",
     paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 5,
+    borderRadius: 20,
   },
   buttonText: {
     fontSize: 16,
   },
+  
 })

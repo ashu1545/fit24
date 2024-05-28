@@ -28,6 +28,7 @@ import Barbell from "assets/barbell.svg"
 import SkippingRope from "assets/skippingRope.svg"
 import WaterBottle from "assets/waterBottle.svg"
 import { useNavigation } from "@react-navigation/native"
+import { BottomSheetScrollView } from "@gorhom/bottom-sheet"
 // import WarmUpPic from "assets/warmUpPic.svg"
 
 
@@ -102,7 +103,7 @@ const FullbodyWorkout = () => {
           right={<Text style={{ color: '#EB8F63' }}>5 Items</Text>}
         />
         {/* Horizontal ScrollView start */}
-        <ScrollView horizontal={true} style={{ flex: 1 }}>
+        <BottomSheetScrollView horizontal={true} style={{flexDirection: 'row'}}>
           <ImageHolder
             image={<Barbell />}
             imageName={'Barbell'}
@@ -115,15 +116,8 @@ const FullbodyWorkout = () => {
             image={<WaterBottle />}
             imageName={'Bottle 1 Liters'}
           />
-        </ScrollView>
-
-
+        </BottomSheetScrollView>
         {/* Horizontal ScrollView end */}
-
-        <DisplayHeader
-          left={<HeaderText headerColor="#DDDADA">You’ll Need</HeaderText>}
-          right={<Text style={{ color: '#EB8F63' }}>5 Items</Text>}
-        />
 
         <DisplayHeader
           left={<HeaderText headerColor="#DDDADA">Exercises</HeaderText>}

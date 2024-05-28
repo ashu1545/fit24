@@ -229,7 +229,7 @@ const MainDashboard = ({ navigation }) => {
         />
 
         <View>
-          <ImageBackground source={graph} style={{ height: 172, alignItems: 'center' }}>
+          <ImageBackground source={graph} style={{ height: 200, alignItems: 'center' }}>
             <UpperbodyWorkoutModal />
           </ImageBackground>
         </View>

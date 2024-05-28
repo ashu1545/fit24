@@ -1,20 +1,31 @@
-import { View, Text } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler"
-import ArrowIcon from "assets/arrowIcon.svg"
+import { View, Text } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import ArrowIcon from "assets/arrowIcon.svg";
 
-const DisplayHeader = ({ left, right, marginTop = 30, flexDirection = "row", marginBottom = 20, noArrow = false }) => {
-
+const DisplayHeader = ({
+  left,
+  right,
+  marginTop = 30,
+  flexDirection = "row",
+  marginBottom = 20,
+}) => {
   return (
-    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginTop: marginTop, marginBottom: marginBottom }}>
-      <View style={{ flexDirection: flexDirection }}>
-        {left}
-      </View>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginTop: marginTop,
+        marginBottom: marginBottom,
+      }}
+    >
+      <View style={{ flexDirection: flexDirection }}>{left}</View>
 
       <TouchableOpacity>
         {right || (!noArrow && <ArrowIcon />)}
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
-export default DisplayHeader
+export default DisplayHeader;

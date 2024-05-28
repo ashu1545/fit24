@@ -6,12 +6,12 @@ import { IconButton } from 'react-native-paper';
 const HeaderNavigation = ({headerText, status}) => {
   console.log(status)
   return (
-    <SafeAreaView style={{backgroundColor: status ? "#92A3FD"  : "white", paddingHorizontal:status ? 20  : null}}>
+    <SafeAreaView style={{backgroundColor: status ? "#1B1B1B"  : "white", paddingHorizontal:status ? 20  : null}}>
       <View style={styles.header}>
-        <View style={[styles.leftIcon, { borderColor:status ? "#92A3FD"  : "#F7F8F8"}]}>
+        <View style={[styles.leftIcon, { borderColor:status ? "#1B1B1B"  : "#F7F8F8"}]}>
         <IconButton
                 icon="chevron-left"
-                iconColor="black"
+                iconColor="white"
                 size={25}
                 onPress={() => console.log('Pressed')}
               />
@@ -20,11 +20,11 @@ const HeaderNavigation = ({headerText, status}) => {
         <View style={styles.middleText}>
           <Text style={[styles.headerText, {color: status ? "white" : "black"}]}>{headerText}</Text>
         </View>
-        <View style={[styles.rightIcons,{ borderColor:status ? "#92A3FD"  : "#F7F8F8",}]}>
+        <View style={[styles.rightIcons,{ borderColor:status ? "#1B1B1B"  : "#F7F8F8",}]}>
           
           <IconButton
                 icon="dots-horizontal"
-                iconColor="black"
+                iconColor="white"
                 size={25}
                 onPress={() => console.log('Pressed')}
               />
@@ -56,8 +56,13 @@ const styles = StyleSheet.create({
     height:45,
     borderRadius:10,
     borderWidth:1,
+<<<<<<< HEAD
+    borderColor:"#1B1B1B",
+    backgroundColor:"#070707",
+=======
     borderColor:"#F7F8F8",
     backgroundColor:"#F7F8F8",
+>>>>>>> d294b3f8b48fac175202d352d5c65332a6e14aca
     alignItems:"center",
     justifyContent:"center"
   },
@@ -75,8 +80,8 @@ const styles = StyleSheet.create({
     height:45,
     borderRadius:10,
     borderWidth:1,
-    borderColor:"#F7F8F8",
-    backgroundColor:"#F7F8F8",
+    borderColor:"#1B1B1B",
+    backgroundColor:"#070707",
     alignItems:"center",
     justifyContent:"center"
   },

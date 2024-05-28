@@ -1,19 +1,22 @@
-import { NavigationContainer, useNavigation, Link } from "@react-navigation/native"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import MainDashboard from "screen/Dashboard/MainDashboard/MainDashboard"
-import ActivityTracker from "screen/Dashboard/ActivityTracker/ActivityTracker"
-import Ionicons from "react-native-vector-icons/Ionicons"
-import HomeIcon from "assets/homeIcon.svg"
-import HomeActiveIcon from "assets/homeActive.svg"
-import ActivityActiveIcon from "assets/activityActiveIcon.svg"
-import ActivityIcon from "assets/activity.svg"
-import BackNavigation from "assets/backNavs.svg"
-import DetailNav from "assets/detailNavs.svg"
-import { View, Text, TouchableOpacity } from "react-native"
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  NavigationContainer,
+  useNavigation,
+  Link,
+} from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MainDashboard from "screen/Dashboard/MainDashboard/MainDashboard";
+import ActivityTracker from "screen/Dashboard/ActivityTracker/ActivityTracker";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import HomeIcon from "assets/home.svg";
+import HomeActiveIcon from "assets/homeActive.svg";
+import ActivityIcon from "assets/activity.svg";
+import BackNavigation from "assets/backNavs.svg";
+import DetailNav from "assets/detailNavs.svg";
+import { View, Text, TouchableOpacity } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 import NotificationPage from "src/screen/Dashboard/NotificationPage/NotificationPage";
-import Profile from "src/component/Profile/Profile"
-import ProfileIcon from "assets/profile.svg"
+import Profile from "src/component/Profile/Profile";
+import ProfileIcon from "assets/profile.svg";
 import ProgressIcon from "assets/progressIcon.svg";
 import ProgressActiveIcon from "assets/progressActiveIcon.svg";
 import ProfileActiveIcon from "assets/profileActive.svg"
@@ -38,13 +41,13 @@ import CameraActiveIcon from "assets/cameraActiveIcon.svg"
 
 
 const DashboardNavigation = () => {
-  const Tab = createBottomTabNavigator()
+  const Tab = createBottomTabNavigator();
   const Stack = createStackNavigator();
   // console.log('navigation', navigation);
 
   const handlePrev = () => {
     // navigation.navigate("MainDashboard")
-  }
+  };
 
   return (
     <>
@@ -62,13 +65,17 @@ const DashboardNavigation = () => {
             } else if (route.name === 'Camera') {
               iconComponent = focused ? <CameraActiveIcon /> : <CameraIcon />
             } else if (route.name === "Profile") {
-              iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />
+              iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />;
             }
             // else if (route.name === "Notification") {
             //   iconComponent = <NotificationIcon />
             // }
             else if (route.name === "ProgressTracker") {
-              iconComponent = focused ? <ProgressActiveIcon /> : <ProgressIcon />
+              iconComponent = focused ? (
+                <ProgressActiveIcon />
+              ) : (
+                <ProgressIcon />
+              );
             }
             return iconComponent;
           },
@@ -81,40 +88,75 @@ const DashboardNavigation = () => {
             }
           ],
           tabBarLabelStyle: {
-            display: 'none'
+            display: "none",
           },
           headerStyle: {
-            backgroundColor: route.name === "WorkoutTracker" ? '#EB8F63' : '#1B1B1B',
-            elevation: 0
+            backgroundColor:
+              route.name === "WorkoutTracker" ? "#EB8F63" : "#1B1B1B",
+            elevation: 0,
           },
           headerTitle: (props) => {
             return (
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignContent: 'space-between', alignItems: 'center', width: '100%' }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignContent: "space-between",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                   <BackNavigation width={32} height={32} />
                 </TouchableOpacity>
-                <Text style={{ color: '#fff', lineHeight: 24, fontSize: 16, fontWeight: "bold" }}>{props.children}</Text>
+                <Text
+                  style={{
+                    color: "#fff",
+                    lineHeight: 24,
+                    fontSize: 16,
+                    fontWeight: "bold",
+                  }}
+                >
+                  {props.children}
+                </Text>
                 <TouchableOpacity>
                   <DetailNav />
                 </TouchableOpacity>
               </View>
-            )
-          }
+            );
+          },
         })}
       >
+<<<<<<< HEAD
+        <Tab.Screen
+          name="MainDashboard"
+          component={MainDashboard}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Activity Tracker"
+          component={ActivityTracker}
+          options={{ headerShown: true }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: true }}
+        />
+=======
         <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
         <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
         <Tab.Screen name="Search" component={Search} options={{ headerShown: true }} />
-        <Tab.Screen name="Camera" component={Camera} options={{ headerShown: true }} />
+        <Tab.Screen name="Camera" component={ProgressPhoto} options={{ headerShown: true }} />
         <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
+>>>>>>> 58829d842cbc8d220a2087ced6f7800cda782a1b
 
-        {/* <Tab.Screen name="Compare" component={Compare} options={{ headerShown: true }} />  */}
-        {/* <Tab.Screen name="Result" component={Result} options={{ headerShown: true }} /> */}
+        
 
         {/* <Tab.Screen name="ProgressTracker" component={ProgressPhoto} options={{headerShown:true}} /> */}
       </Tab.Navigator>
     </>
-  )
-}
+  );
+};
 
-export default DashboardNavigation
+export default DashboardNavigation;

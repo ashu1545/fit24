@@ -3,6 +3,7 @@ import React from 'react'
 import Layout from 'src/component/Layouts/Layout/Layout'
 import HeaderNavigation from 'src/component/HeaderNavigation'
 import DisplayHeader from 'src/component/Headers/DisplayHeader/DisplayHeader'
+import { useNavigation } from "@react-navigation/native"
 import { LinearGradient } from 'expo-linear-gradient';
 import Photocamera from "assets/photocamera.svg"
 import ProgressCalendar from "assets/progressCalendar.svg"
@@ -25,8 +26,8 @@ const data1 = [
   { id: '5', title: 'Item 5', image: require("../../../assets/photo3.png") },
 ];
 
-const ProgressPhoto = ({navigation}) => {
-
+const ProgressPhoto = () => {
+  const navigation = useNavigation()
   const renderItem = ({ item }) => (
     <View style={styles.item}>
       <Image source={item.image} style={styles.image} />
@@ -85,7 +86,9 @@ const ProgressPhoto = ({navigation}) => {
         <DisplayHeader
           left={<HeaderText>Campare my Photo </HeaderText>}
           marginTop={10}
-          right={<HeaderButton onPress={() => navigation.navigate("Compare")}>Campare</HeaderButton>}
+          right={<HeaderButton onPress={() =>{
+            navigation.navigate("Compare", { screen: 'Compare' })
+          }}>Campare</HeaderButton>}
         />
       </LinearGradient>
 
@@ -111,7 +114,7 @@ const ProgressPhoto = ({navigation}) => {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         />
-        <View style={{ position: "rrelative", left: 310, top: -60 }}>
+        <View style={{ position: "rrelative", left: 280, top: -60 }}>
           <LinearGradient
             colors={['#C58BF2', '#EEA4CE',]}
             style={{ borderRadius: 50, width: 50, height: 50, alignItems: "center", justifyContent: "center" }}

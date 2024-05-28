@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.placeholder.fit24"
     },
     "android": {
       "package": "com.placeholder.fit24",

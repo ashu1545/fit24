@@ -14,7 +14,7 @@ const Statistics = () => {
     ]
 
     return (
-        <Layout>
+        <View>
             <View style={{flex:1,alignItems:"center",justifyContent:"center", marginTop:10}}>
                <ProgressTrackerGraph/> 
             </View>
@@ -38,7 +38,7 @@ const Statistics = () => {
                     </View>
                 ))}
             </View>
-        </Layout>
+        </View>
     )
 }
 

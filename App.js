@@ -21,6 +21,8 @@ import JumpingJack from "src/screen/WorkoutTracker/Workouts/FullbodyWorkout/Jump
 import Congratulation from "src/screen/Congratulation/Congratulation";
 import WorkoutSchedule from "src/component/WorkoutSchedule/WorkoutSchedule";
 import AddSchedule from "src/screen/AddSchedule/AddSchedule";
+import Result from "src/screen/Progress/Result";
+import Campare from "src/screen/Progress/Campare";
 
 
 export default function App() {
@@ -55,13 +57,13 @@ export default function App() {
             }
           })}
         >
-          {/* <Stack.Screen name="MainScreen" component={OnboardingFirstPage} options={{ headerShown: false }} />
+          <Stack.Screen name="MainScreen" component={OnboardingFirstPage} options={{ headerShown: false }} />
           <Stack.Screen name="OnBoardingScreen" component={OnboardingPage} options={{ headerShown: false }} />
           <Stack.Screen name="LoginScreen" component={Login} options={{ headerShown: false }} />
-          <Stack.Screen name="SignUpScreen" component={SignUp} options={{ headerShown: false }} /> */}
+          <Stack.Screen name="SignUpScreen" component={SignUp} options={{ headerShown: false }} />
 
 
-          {/* <Stack.Screen name="LoginFirstScreen" component={HomefirstScreen} options={{ headerShown: false }} /> */}
+          <Stack.Screen name="LoginFirstScreen" component={HomefirstScreen} options={{ headerShown: false }} />
           <Stack.Screen name="DashboardScreen" component={DashboardNavigation} options={{ headerShown: false }} />
           <Stack.Screen name="Notification" component={NotificationPage} options={{ headerShown: true, headerLeft: null }} />
           <Stack.Screen name="Workout Tracker" component={WorkoutTracker} options={{ headerShown: true, headerLeft: null }} />
@@ -70,9 +72,13 @@ export default function App() {
           <Stack.Screen name="Congratulation" component={Congratulation} options={{ headerShown: true, headerLeft: null }} />
           <Stack.Screen name="Workout Schedule" component={WorkoutSchedule} options={{ headerShown: true, headerLeft: null }} />
           <Stack.Screen name="Add Schedule" component={AddSchedule} options={{ headerShown: true, headerLeft: null }} />
+          <Stack.Screen name="Compare" component={Campare} options={{ headerShown: true, headerLeft: null }} />
+          <Stack.Screen name="Result" component={Result} options={{ headerShown: true, headerLeft: null }} />
 
-          {/* <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
-          <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} /> */}
+
+
+          <Stack.Screen name="SignUpSetup" component={SignUpSetup} options={{ headerShown: false }} />
+          <Stack.Screen name="SignUpSetting" component={AnimatedCarusel} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>

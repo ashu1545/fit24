@@ -3,8 +3,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import MainDashboard from "screen/Dashboard/MainDashboard/MainDashboard"
 import ActivityTracker from "screen/Dashboard/ActivityTracker/ActivityTracker"
 import Ionicons from "react-native-vector-icons/Ionicons"
-import HomeIcon from "assets/home.svg"
+import HomeIcon from "assets/homeIcon.svg"
 import HomeActiveIcon from "assets/homeActive.svg"
+import ActivityActiveIcon from "assets/activityActiveIcon.svg"
 import ActivityIcon from "assets/activity.svg"
 import BackNavigation from "assets/backNavs.svg"
 import DetailNav from "assets/detailNavs.svg"
@@ -55,9 +56,9 @@ const DashboardNavigation = () => {
             if (route.name === "MainDashboard") {
               iconComponent = focused ? <HomeActiveIcon /> : <HomeIcon />;
             } else if (route.name === "Activity Tracker") {
-              iconComponent = <ActivityIcon />
+              iconComponent = focused ? <ActivityActiveIcon /> : <ActivityIcon />
             } else if (route.name === 'Search') {
-              iconComponent = <SearchHomeIcon style={{marginBottom: 30}} />
+              iconComponent = <SearchHomeIcon style={{ marginBottom: 30 }} />
             } else if (route.name === 'Camera') {
               iconComponent = focused ? <CameraActiveIcon /> : <CameraIcon />
             } else if (route.name === "Profile") {

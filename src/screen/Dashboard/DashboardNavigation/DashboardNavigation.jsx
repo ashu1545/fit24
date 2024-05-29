@@ -127,29 +127,11 @@ const DashboardNavigation = () => {
           },
         })}
       >
-<<<<<<< HEAD
-        <Tab.Screen
-          name="MainDashboard"
-          component={MainDashboard}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name="Activity Tracker"
-          component={ActivityTracker}
-          options={{ headerShown: true }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{ headerShown: true }}
-        />
-=======
         <Tab.Screen name="MainDashboard" component={MainDashboard} options={{ headerShown: false }} />
         <Tab.Screen name="Activity Tracker" component={ActivityTracker} options={{ headerShown: true }} />
         <Tab.Screen name="Search" component={Search} options={{ headerShown: true }} />
         <Tab.Screen name="Camera" component={ProgressPhoto} options={{ headerShown: true }} />
         <Tab.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
->>>>>>> 58829d842cbc8d220a2087ced6f7800cda782a1b
 
         
 

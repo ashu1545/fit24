@@ -27,11 +27,15 @@ import ThirdMealPlanner from "src/screen/mealplanner/Third_page_mealplanner";
 import MealSchedule from "src/screen/mealplanner/Fourth_page_mealSchedule";
 import Result from "src/screen/Progress/Result";
 import Campare from "src/screen/Progress/Campare";
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
+const Stack = createStackNavigator();
+
 
 export default function App() {
   // const navigation = useNavigation()
 
-  const Stack = createStackNavigator();
   // const handlePrev = () => {
   //   navigation.goBack()
   // }

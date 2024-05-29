@@ -8,6 +8,7 @@ const DisplayHeader = ({
   marginTop = 30,
   flexDirection = "row",
   marginBottom = 20,
+  noArrow = false
 }) => {
   return (
     <View

@@ -30,13 +30,15 @@ const CardContent = ({
       >
         {subtitle}
       </Text>
-      <TouchableOpacity onPress={handlePress}>
+      <TouchableOpacity>
         <Button
           mode="contained"
           theme={{ colors: { primary: "#FFFFFF" } }}
           labelStyle={{ color: "#EB8F63" }}
         >
-          {buttonText}
+          <Text>
+            {buttonText}
+          </Text>
         </Button>
       </TouchableOpacity>
     </>

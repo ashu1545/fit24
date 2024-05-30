@@ -38,16 +38,15 @@ import Search from "src/component/Search/Search"
 import CameraIcon from "assets/cameraIcon.svg"
 import Camera from "src/component/Camera/Camera"
 import CameraActiveIcon from "assets/cameraActiveIcon.svg"
+import ActivityActiveIcon from "assets/activityActiveIcon.svg";
 
 
 const DashboardNavigation = () => {
   const Tab = createBottomTabNavigator();
   const Stack = createStackNavigator();
-  // console.log('navigation', navigation);
 
-  const handlePrev = () => {
-    // navigation.navigate("MainDashboard")
-  };
+
+  
 
   return (
     <>
@@ -67,9 +66,6 @@ const DashboardNavigation = () => {
             } else if (route.name === "Profile") {
               iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />;
             }
-            // else if (route.name === "Notification") {
-            //   iconComponent = <NotificationIcon />
-            // }
             else if (route.name === "ProgressTracker") {
               iconComponent = focused ? (
                 <ProgressActiveIcon />

@@ -10,11 +10,24 @@ const LongCard = ({
   progressBar,
   backgroundColor,
   rightIcon,
+  onToggleSnackBar,
 }) => {
   const navigation = useNavigation();
   const handlePress = () => {
     if (title === "Jumping Jack") {
       navigation.navigate("Jumping Jack");
+    }
+    else if( title === "Fullbody Workout"){
+      navigation.navigate("Fullbody Workout");
+    }
+    else if( title === "Upperbody Workout"){
+      onToggleSnackBar();
+    }
+    else if(title === "Lowerbody Workout"){
+      onToggleSnackBar();
+    }
+    else if(title === "Ab Workout"){
+      onToggleSnackBar();
     }
   };
 

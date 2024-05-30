@@ -14,8 +14,8 @@ const { height } = Dimensions.get('window');
 
 const Campare = ({navigation}) => {
 
-    const buttonMarginFromBottom = height * 0.5;
-    console.log(buttonMarginFromBottom)
+    const buttonMarginFromBottom = height * 0.6;
+    
     return (
         <Layout>
 

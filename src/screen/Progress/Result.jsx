@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import Layout from 'src/component/Layouts/Layout/Layout'
 import Statistics from './Statistics'
+import Photo from './Photo'
 
 
 
@@ -44,7 +45,7 @@ const Result = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      {activeButton === 'Statistics' ? <Statistics /> : <Text>Photo Content</Text>}
+      {activeButton === 'Statistics' ? <Statistics /> : <Photo />}
     </Layout>
   )
 }

@@ -239,7 +239,7 @@ const FullbodyWorkout = () => {
           theme={{ colors: { primary: "#EB8F63" } }}
           contentStyle={{ paddingVertical: 15, fontSize: 16, lineHeight: 24 }}
           style={{ borderRadius: 50, marginBottom: 30 }}
-          onPress={() => navigation.navigate("JumpingJack")}
+          onPress={() => navigation.navigate("Jumping Jack")}
         >
           Start Workout
         </Button>

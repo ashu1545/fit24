@@ -7,6 +7,7 @@ const CardContent = ({
   subtitle,
   buttonText,
   titleColor = "#FFFFFF",
+  handlePress
 }) => {
   return (
     <>

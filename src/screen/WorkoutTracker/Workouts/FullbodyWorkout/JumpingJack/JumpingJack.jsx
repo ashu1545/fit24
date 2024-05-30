@@ -85,27 +85,37 @@ const JumpingJack = ({ navigation }) => {
           "To make the gestures feel more relaxed, stretch your arms as you start this movement. No bending of hands."
         }
       />
+      <View style={{marginBottom:15}}>
+        
+      </View>
       <Step
         number={"02"}
-        circleSvg={<Circle style={{ marginHorizontal: 11 }} />}
+        circleSvg={<Circle style={{ marginHorizontal: 11, }} />}
         lineSvg={<Line style={{ marginHorizontal: 21, marginTop: -11 }} />}
         title={"Rest at The Toe"}
         description={
           "The basis of this movement is jumping. Now, what needs to be considered is that you have to use the tips of your feet"
         }
       />
+      <View style={{marginBottom:15}}>
+        
+        </View>
       <Step
         number={"03"}
-        circleSvg={<Circle style={{ marginHorizontal: 11 }} />}
+        circleSvg={<Circle style={{ marginHorizontal: 11, }} />}
         lineSvg={<Line style={{ marginHorizontal: 21, marginTop: -11 }} />}
         title={"Adjust Foot Movement"}
         description={
           "Jumping Jack is not just an ordinary jump. But, you also have to pay close attention to leg movements."
         }
       />
+      <View style={{marginBottom:18}}>
+        
+        </View>
       <Step
         number={"04"}
         circleSvg={<Circle style={{ marginHorizontal: 11 }} />}
+        lineSvg={<Line style={{ marginHorizontal: 21, marginTop: -11 }} />}
         title={"Clapping Both Hands"}
         description={
           "This cannot be taken lightly. You see, without realizing it, the clapping of your hands helps you to keep your rhythm while doing the Jumping Jack"

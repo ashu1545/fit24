@@ -10,7 +10,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeIcon from "assets/home.svg";
 import HomeActiveIcon from "assets/homeActive.svg";
 import ActivityIcon from "assets/activity.svg";
-import ActivityActiveIcon from "assets/activityActiveIcon.svg";
 import BackNavigation from "assets/backNavs.svg";
 import DetailNav from "assets/detailNavs.svg";
 import { View, Text, TouchableOpacity } from "react-native";
@@ -39,18 +38,13 @@ import Search from "src/component/Search/Search"
 import CameraIcon from "assets/cameraIcon.svg"
 import Camera from "src/component/Camera/Camera"
 import CameraActiveIcon from "assets/cameraActiveIcon.svg"
-import { enableScreens } from 'react-native-screens';
+import ActivityActiveIcon from "assets/activityActiveIcon.svg";
 
 enableScreens();
-const Tab = createBottomTabNavigator();
 
 const DashboardNavigation = () => {
-  // console.log('navigation', navigation);
-
-  const handlePrev = () => {
-    // navigation.navigate("MainDashboard")
-  };
-
+  const Tab = createBottomTabNavigator();
+  
   return (
     <>
       <Tab.Navigator
@@ -69,9 +63,6 @@ const DashboardNavigation = () => {
             } else if (route.name === "Profile") {
               iconComponent = focused ? <ProfileActiveIcon /> : <ProfileIcon />;
             }
-            // else if (route.name === "Notification") {
-            //   iconComponent = <NotificationIcon />
-            // }
             else if (route.name === "ProgressTracker") {
               iconComponent = focused ? (
                 <ProgressActiveIcon />

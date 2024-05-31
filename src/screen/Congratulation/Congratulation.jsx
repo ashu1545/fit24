@@ -61,7 +61,7 @@ const Congratulation = () => {
             lineHeight: 24,
             fontWeight: "bold",
           }}
-          style={{ borderRadius: 50, marginTop: 180 }}
+          style={{ borderRadius: 50, marginTop: 180, marginBottom:15 }}
         >
           Back To Home
         </Button>

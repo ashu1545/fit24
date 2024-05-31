@@ -26,7 +26,6 @@ const OnboardingPage = ({navigation}) => {
 
     };
 
-    console.log(imageIndex, "data1234")
 
     return (
         <SafeAreaView style={styles.container}>

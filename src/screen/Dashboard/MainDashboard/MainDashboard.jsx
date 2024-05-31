@@ -10,7 +10,7 @@ import {
 import React, { useState, useRef } from "react";
 import BannerPie from "assets/bannerPie.svg";
 import HeartGraph from "assets/heartGraph.svg";
-import { Button, IconButton, Drawer } from "react-native-paper";
+import { Button, IconButton, Drawer, Snackbar } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 import Layout from "src/component/Layouts/Layout/Layout";
 import SleepGraph from "assets/sleepGraph.svg";
@@ -33,6 +33,7 @@ import HeaderButton from "src/component/Headers/HeaderButton/HeaderButton";
 import TooltipView from "src/component/TooltipView/TooltipView";
 import HeaderText from "src/component/Headers/HeaderText/HeaderText";
 const MainDashboard = ({ navigation }) => {
+  const [visible, setVisible] = useState(false);
   const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState("left");
   const [active, setActive] = React.useState("");
@@ -44,6 +45,9 @@ const MainDashboard = ({ navigation }) => {
       setDrawerPosition("left");
     }
   };
+  const onToggleSnackBar = () => setVisible(!visible);
+
+  const onDismissSnackBar = () => setVisible(false);
 
   const navigationView = () => (
     <View style={{ flex: 1 }}>
@@ -471,6 +475,7 @@ const MainDashboard = ({ navigation }) => {
             avatar={<LowerBodyWorkout width={50} height={50} />}
             backgroundColor={"#FFFFFF"}
             title={"Lowerbody Workout"}
+            onToggleSnackBar={onToggleSnackBar}
             subtitle={"200 Calories Burn | 30minutes"}
             progressBar={
               <ProgressBar
@@ -488,6 +493,7 @@ const MainDashboard = ({ navigation }) => {
             avatar={<AbsWorkout width={50} height={50} />}
             backgroundColor={"#FFFFFF"}
             title={"Ab Workout"}
+            onToggleSnackBar={onToggleSnackBar}
             subtitle={"180 Calories Burn | 20minutes"}
             progressBar={
               <ProgressBar
@@ -499,9 +505,16 @@ const MainDashboard = ({ navigation }) => {
               />
             }
             rightIcon={<WorkoutProceedButton width={40} height={40} />}
+            
           />
         </View>
       </View>
+      <Snackbar
+        visible={visible}
+        onDismiss={onDismissSnackBar}
+      >
+        working in Progress Coming Soon.
+      </Snackbar>
     </Layout>
   );
 };

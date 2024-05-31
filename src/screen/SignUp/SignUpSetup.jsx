@@ -3,9 +3,7 @@ import { TouchableOpacity, StyleSheet, View, SafeAreaView, Platform, StatusBar, 
 import { TextInput, Button, Text, SegmentedButtons } from 'react-native-paper';
 
 import DatePickerModal from '../../component/DatePickerModal';
-
-import SignUp from "../../../assets/signUpSetup.jpg";
-import Workout23 from "../../../assets/Workout_Setup23.jpg";
+import Sign_setup from "assets/sign_setup.svg"
 
 const SignUpSetup = ({navigation}) => {
     const [gender, setGender] = useState('');
@@ -97,7 +95,7 @@ const SignUpSetup = ({navigation}) => {
             <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null}>
                 <ScrollView contentContainerStyle={styles.scrollViewContent}>
                     <View style={styles.imageContainer}>
-                        <Image source={Workout23} style={styles.image} resizeMode="cover" />
+                        <Sign_setup/>
                     </View>
                     <View style={styles.form}>
                         <View style={styles.toptext}>
@@ -116,16 +114,20 @@ const SignUpSetup = ({navigation}) => {
                                         value: 'male',
                                         label: 'Male',
                                         icon: 'gender-male',
+                                        checkedColor: '#EB8563',
+                                        uncheckedColor: '#ffffff',
                                     },
                                     {
                                         value: 'female',
                                         label: 'Female',
-                                        icon: 'gender-female'
+                                        icon: 'gender-female',
+                                        checkedColor: '#EB8563',
+                                        uncheckedColor: '#ffffff',
                                     },
 
                                 ]}
-                                theme={{ colors: { primary: 'white' } }}
-                                style={[styles.segmentedButtonContainer,{color:"white"}]}
+                                theme={{ colors: { primary: gender ?  "white" :  'white' } }}
+                                style={[styles.segmentedButtonContainer,{color: gender ?  "white" : "white"}]}
                             />
                             {!!genderError && <Text style={styles.error}>{genderError}</Text>}
                         </View>

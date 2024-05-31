@@ -29,11 +29,11 @@ import Result from "src/screen/Progress/Result";
 import Campare from "src/screen/Progress/Campare";
 import { enableScreens } from 'react-native-screens';
 
-enableScreens();
-const Stack = createStackNavigator();
 
 
 export default function App() {
+  enableScreens();
+  const Stack = createStackNavigator();
   // const navigation = useNavigation()
 
   // const handlePrev = () => {

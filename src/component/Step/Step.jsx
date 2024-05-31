@@ -20,7 +20,7 @@ const Step = ({ number, circleSvg, lineSvg, title, description }) => {
             fontSize: 14,
             fontWeight: "regular",
             color: "#FFFFFF",
-            marginBottom: 8,
+           // marginBottom: 8,
           }}
         >
           {title}

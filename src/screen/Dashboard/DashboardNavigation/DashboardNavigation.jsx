@@ -39,10 +39,11 @@ import CameraIcon from "assets/cameraIcon.svg"
 import Camera from "src/component/Camera/Camera"
 import CameraActiveIcon from "assets/cameraActiveIcon.svg"
 import ActivityActiveIcon from "assets/activityActiveIcon.svg";
+import { enableScreens } from 'react-native-screens';
 
-enableScreens();
 
 const DashboardNavigation = () => {
+  enableScreens();
   const Tab = createBottomTabNavigator();
   
   return (

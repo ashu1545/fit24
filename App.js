@@ -118,7 +118,7 @@ export default function App() {
             component={NotificationPage}
             options={{ headerShown: true, headerLeft: null }}
           /> */}
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Workout Tracker"
             component={WorkoutTracker}
             options={{ headerShown: true, headerLeft: null }}
@@ -137,7 +137,7 @@ export default function App() {
             name="Congratulation"
             component={Congratulation}
             options={{ headerShown: true, headerLeft: null }}
-          />
+          /> */}
           <Stack.Screen
             name="Workout Schedule"
             component={WorkoutSchedule}

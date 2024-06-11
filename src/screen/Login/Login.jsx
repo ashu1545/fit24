@@ -42,7 +42,7 @@ const Login = ({ navigation }) => {
     }
 
     if (email === "ashutosh1545@gmail.com" && password === "password@123") {
-      navigation.navigate('LoginFirstScreen');
+      navigation.navigate('SignUpSetting');
     }
     else {
       setPasswordError('Wrong Password');

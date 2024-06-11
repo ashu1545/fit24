@@ -28,6 +28,7 @@ import MealSchedule from "src/screen/mealplanner/Fourth_page_mealSchedule";
 import Result from "src/screen/Progress/Result";
 import Campare from "src/screen/Progress/Campare";
 import { enableScreens } from 'react-native-screens';
+import WalkingAndRunningActivity from "src/screen/WalkingAndRunningActivity/WalkingAndRunningActivity";
 
 
 
@@ -127,6 +128,11 @@ export default function App() {
             name="Fullbody Workout"
             component={FullbodyWorkout}
             options={{ headerShown: true, headerLeft: null }}
+          />
+          <Stack.Screen
+            name="Walking and Running Activity"
+            component={WalkingAndRunningActivity}
+            options={{ headerShown: false, headerLeft: null }}
           />
           <Stack.Screen
             name="Jumping Jack"

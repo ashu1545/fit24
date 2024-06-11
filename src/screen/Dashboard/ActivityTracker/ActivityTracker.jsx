@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 import { Button } from 'react-native-paper';
 
-import React from 'react'
+import React,{useContext} from 'react'
 import Layout from 'src/component/Layouts/Layout/Layout';
+import { AppContext } from 'src/context_api/AppContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import ButtonPlus from "assets/buttonPlus.svg"
 import GlassCup from "assets/glassCup.svg"
@@ -19,6 +20,7 @@ import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
 
 const ActivityTracker = ({ navigation }) => {
 
+  const {runningData,walkingData} = useContext(AppContext)
   const NotificationNavigate = () => {
     navigation.navigate('Notification');
   }
@@ -51,7 +53,7 @@ const ActivityTracker = ({ navigation }) => {
           />
           <MiniCard
             pic={<Boots />}
-            title={'2400'}
+            title={walkingData ? walkingData : '2400'}
             subtitle={'Foot Steps'}
           />
         </View>

@@ -16,10 +16,12 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.placeholder.fit24"
+      "bundleIdentifier": "com.placeholder.fit24",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "package": "com.placeholder.fit24",
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

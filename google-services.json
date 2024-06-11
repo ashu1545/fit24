@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "753016219686",
+    "project_id": "fit24-b3df7",
+    "storage_bucket": "fit24-b3df7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753016219686:android:20f779304f8791c01edee7",
+        "android_client_info": {
+          "package_name": "com.placeholder.fit24"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753016219686-ivbu5qoeif0adf4ck49j2obavhnauq9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRtHJH86m_LERO6DIWcJC36QfQACNWavg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753016219686-ivbu5qoeif0adf4ck49j2obavhnauq9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

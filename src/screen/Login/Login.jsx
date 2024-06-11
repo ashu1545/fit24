@@ -3,6 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { StyleSheet, View, SafeAreaView, Platform, StatusBar, Image } from 'react-native';
 import { TextInput, Button, Text, IconButton } from 'react-native-paper';
 import { AppContext } from '../../context_api/AppContext';
+import { signInWithGoogle } from 'utils/GoogleSignin';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -47,6 +48,15 @@ const Login = ({ navigation }) => {
     else {
       setPasswordError('Wrong Password');
       setEmailError('Wrong Email');
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle()
+      navigation.navigate('SignUpSetting')
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -113,7 +123,7 @@ const Login = ({ navigation }) => {
             <Image source={GoogleIcon} style={{ width: 40, height: 40 }} />
 
           </TouchableOpacity>
-          <TouchableOpacity style={styles.IconButton}>
+          <TouchableOpacity style={styles.IconButton} onPress={handleGoogleSignIn}>
             {/* <IconButton
               icon={FacebookIcon}
               //iconColor="blue"

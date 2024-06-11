@@ -1,7 +1,6 @@
-import React, { useState, useEffect,useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { AppContext } from 'src/context_api/AppContext';
-import * as Permissions from 'expo-permissions';
 import { Pedometer } from 'expo-sensors';
 
 const WalkingAndRunningActivity = () => {
@@ -11,18 +10,9 @@ const WalkingAndRunningActivity = () => {
   const [runningSteps, setRunningSteps] = useState(0);
   const [walkingSteps, setWalkingSteps] = useState(0);
 
-  const {setWalkingData , setRunningData} = useContext(AppContext)
+  const { setWalkingData, setRunningData } = useContext(AppContext);
 
   useEffect(() => {
-    const getPermissions = async () => {
-      const { status } = await Permissions.askAsync(Permissions.LOCATION);
-      if (status !== 'granted') {
-        alert('Permission to access location is required!');
-      }
-    };
-
-    getPermissions();
-
     Pedometer.isAvailableAsync().then(
       result => {
         setIsPedometerAvailable(String(result));
@@ -62,28 +52,29 @@ const WalkingAndRunningActivity = () => {
     };
   }, []);
 
-  useEffect(() =>{
-  if(runningSteps){
-    setRunningData(runningSteps);
-  }
-  },[runningSteps])
+  useEffect(() => {
+    if (runningSteps) {
+      setRunningData(runningSteps);
+    }
+  }, [runningSteps]);
 
-  useEffect(() =>{
-    if(walkingSteps){
+  useEffect(() => {
+    if (walkingSteps) {
       setWalkingData(walkingSteps);
     }
-    },[walkingSteps])
+  }, [walkingSteps]);
 
   return (
-    <View>
-      {/* <Text>Is Pedometer available: {isPedometerAvailable}</Text>
+    <View style={styles.container}>
+      <Text>Is Pedometer available: {isPedometerAvailable}</Text>
       <Text>Steps taken in the last 24 hours: {pastStepCount}</Text>
       <Text>Current Step Count: {currentStepCount}</Text>
       <Text>Running Steps: {runningSteps}</Text>
-      <Text>Walking Steps: {walkingSteps}</Text> */}
+      <Text>Walking Steps: {walkingSteps}</Text>
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {

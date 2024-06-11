@@ -83,7 +83,7 @@ export default function App() {
             },
           })}
         >
-          {/* <Stack.Screen
+          <Stack.Screen
             name="MainScreen"
             component={OnboardingFirstPage}
             options={{ headerShown: false }}
@@ -113,13 +113,13 @@ export default function App() {
             name="DashboardScreen"
             component={DashboardNavigation}
             options={{ headerShown: false }}
-          /> */}
-          {/* <Stack.Screen
+          />
+          <Stack.Screen
             name="Notification"
             component={NotificationPage}
             options={{ headerShown: true, headerLeft: null }}
-          /> */}
-          {/* <Stack.Screen
+          />
+          <Stack.Screen
             name="Workout Tracker"
             component={WorkoutTracker}
             options={{ headerShown: true, headerLeft: null }}
@@ -143,7 +143,7 @@ export default function App() {
             name="Congratulation"
             component={Congratulation}
             options={{ headerShown: true, headerLeft: null }}
-          /> */}
+          />
           <Stack.Screen
             name="Workout Schedule"
             component={WorkoutSchedule}

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native'
 import { Button } from 'react-native-paper';
 
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import Layout from 'src/component/Layouts/Layout/Layout';
 import { AppContext } from 'src/context_api/AppContext';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -18,9 +18,14 @@ import LongCard from 'src/component/Cards/LongCard/LongCard';
 import HeaderText from 'src/component/Headers/HeaderText/HeaderText';
 import HeaderButton from 'src/component/Headers/HeaderButton/HeaderButton';
 
+import useHealthData from "../../../useHealthData";
 const ActivityTracker = ({ navigation }) => {
 
   const {runningData,walkingData} = useContext(AppContext)
+  const [date, setDate] = useState(new Date());
+    const { steps, flights, distance } = useHealthData(date);
+  
+    console.log(steps, flights, distance, "data123")
   const NotificationNavigate = () => {
     navigation.navigate('Notification');
   }
@@ -53,7 +58,7 @@ const ActivityTracker = ({ navigation }) => {
           />
           <MiniCard
             pic={<Boots />}
-            title={walkingData ? walkingData : '2400'}
+            title={steps ? steps.toString() : '0'}
             subtitle={'Foot Steps'}
           />
         </View>

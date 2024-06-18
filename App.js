@@ -31,16 +31,13 @@ import Loader from "src/screen/Loader/Loader";
 import { enableScreens } from 'react-native-screens';
 
 
+
 enableScreens();
 const Stack = createStackNavigator();
 
 
 export default function App() {
-  // const navigation = useNavigation()
-
-  // const handlePrev = () => {
-  //   navigation.goBack()
-  // }
+ 
   return (
     <AppProvider>
       <NavigationContainer style={{ backgroundColor: "#000000" }}>

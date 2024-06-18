@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { TouchableOpacity, StyleSheet, View, SafeAreaView, Platform, StatusBar, Image } from 'react-native';
+import { TouchableOpacity, StyleSheet, View,ScrollView, SafeAreaView, Platform, StatusBar, Image, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { TextInput, Button, Text } from 'react-native-paper';
 import { AppContext } from '../../context_api/AppContext';
 import Loader from '../Loader/Loader';
-
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -47,7 +46,6 @@ const Login = ({ navigation }) => {
   const handleLogin = () => {
     if (validate(email, password)) {
       setLoader(true);
-      // navigation.navigate('Loader');
       setTimeout(() => {
         setLoader(false);
         if (email === "ashutosh1545@gmail.com" && password === "password@123") {
@@ -55,90 +53,89 @@ const Login = ({ navigation }) => {
         } else {
           setPasswordError('Wrong Password');
           setEmailError('Wrong Email');
-
         }
       }, 4000);
     }
   };
 
-
-
   return (
     <>
-      { loader ?  <Loader /> :
-         
-        <SafeAreaView style={styles.container}>
-          <View style={styles.form}>
-            <View style={styles.toptext}>
-              <Text style={[styles.topText1, { color: "#ffffff" }]}>Hey there,</Text>
-              <Text style={[styles.topText2, { color: "#ffffff" }]}>Welcome Back</Text>
-            </View>
-            <TextInput
-              mode="outlined"
-              label="Email"
-              value={email}
-              onChangeText={(text) => setEmail(text)}
-              error={!!emailError}
-              left={<TextInput.Icon icon="email" color="#EB8563" />}
+      {loader ? <Loader /> :
+        <>
+          <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : null} style={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollViewContent}>
+              <View style={styles.innerContainer}>
+                <View style={styles.form}>
+                  <View style={styles.toptext}>
+                    <Text style={[styles.topText1, { color: "#ffffff" }]}>Hey there,</Text>
+                    <Text style={[styles.topText2, { color: "#ffffff" }]}>Welcome Back</Text>
+                  </View>
+                  <TextInput
+                    mode="outlined"
+                    label="Email"
+                    value={email}
+                    onChangeText={(text) => setEmail(text)}
+                    error={!!emailError}
+                    left={<TextInput.Icon icon="email" color="#EB8563" />}
               style={{ color: "#ffffff" }}
-            />
-            {!!emailError && <Text style={styles.error}>{emailError}</Text>}
+                  />
+                  {!!emailError && <Text style={styles.error}>{emailError}</Text>}
 
-            <TextInput
-              mode="outlined"
-              label="Password"
-              value={password}
-              onChangeText={(text) => setPassword(text)}
-              error={!!passwordError}
-              secureTextEntry={!showPassword}
-              left={<TextInput.Icon icon="lock" color="#EB8563" />}
+                  <TextInput
+                    mode="outlined"
+                    label="Password"
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                    error={!!passwordError}
+                    secureTextEntry={!showPassword}
+                    left={<TextInput.Icon icon="lock" color="#EB8563" />}
               right={<TextInput.Icon color="#EB8563" icon={showPassword ? 'eye-off' : 'eye'} onPress={() => setShowPassword(!showPassword)} />} // Toggle icon based on showPassword state
-            />
-            {!!passwordError && <Text style={styles.error}>{passwordError}</Text>}
+                  />
+                  {!!passwordError && <Text style={styles.error}>{passwordError}</Text>}
 
-            <Button style={{}}>
-              <Text style={styles.registerText}>Forget password?</Text>
-            </Button>
-          </View>
+                  <Button>
+                    <Text style={styles.registerText}>Forget password?</Text>
+                  </Button>
+                </View>
 
-          <View style={styles.bottom}>
-            <TouchableOpacity>
-              <Button
-                icon="login"
-                mode="contained"
-                onPress={handleLogin}
-                style={styles.button}
-              >
-                Login
-              </Button>
+                <View style={styles.bottom}>
+                  <TouchableOpacity>
+                    <Button
+                      icon="login"
+                      mode="contained"
+                      onPress={handleLogin}
+                      style={styles.button}
+                    >
+                      Login
+                    </Button>
+                  </TouchableOpacity>
 
-
-            </TouchableOpacity>
-
-            <View style={styles.Or}>
-              <Text style={styles.separatorLine}>________________________</Text>
-              <Text style={styles.separatorText}>Or</Text>
-              <Text style={styles.separatorLine}>________________________</Text>
-            </View>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.IconButton}>
-                <Image source={GoogleIcon} style={{ width: 40, height: 40 }} />
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.IconButton}>
-                <Image source={FacebookIcon} style={{ width: 40, height: 40 }} />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.Register}>
-              <Text style={styles.registerText}>Don't have an account yet?</Text>
-              <Button onPress={() => navigation.navigate('SignUpScreen')} style={styles.buttonRegister}>
-                Register
-              </Button>
-            </View>
-          </View>
-        </SafeAreaView>
+                  <View style={styles.Or}>
+                    <Text style={styles.separatorLine}>________________________</Text>
+                    <Text style={styles.separatorText}>Or</Text>
+                    <Text style={styles.separatorLine}>________________________</Text>
+                  </View>
+                  <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.IconButton}>
+                      <Image source={GoogleIcon} style={{ width: 40, height: 40 }} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.IconButton}>
+                      <Image source={FacebookIcon} style={{ width: 40, height: 40 }} />
+                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.Register}>
+                    <Text style={styles.registerText}>Don't have an account yet?</Text>
+                    <Button onPress={() => navigation.navigate('SignUpScreen')} style={styles.buttonRegister}>
+                      Register
+                    </Button>
+                  </View>
+                </View>
+              </View>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </>
       }
     </>
-
   );
 };
 
@@ -147,9 +144,12 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#090909",
+  },
+  innerContainer: {
+    flex: 1,
     alignItems: 'center',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    backgroundColor: "#090909",
     paddingHorizontal: 20,
   },
   toptext: {
@@ -167,10 +167,8 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   form: {
-    position: "absolute",
-    top: 100,
     width: '100%',
-    gap: 5,
+    marginTop: 100,
   },
   button: {
     marginTop: 10,
@@ -223,5 +221,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 15,
     borderColor: "gray"
-  }
+  },
+  textInput: {
+    backgroundColor: '#090909',
+    color: "#ffffff",
+    marginBottom: 10,
+  },
 });

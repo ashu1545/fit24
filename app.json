@@ -20,6 +20,11 @@
     },
     "android": {
       "package": "com.placeholder.fit24",
+      "permissions": [
+        "android.permission.health.READ_STEPS",
+        "android.permission.health.READ_FLOORS_CLIMBED",
+        "android.permission.health.READ_DISTANCE"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -34,12 +39,27 @@
       }
     },
     "plugins": [
+      "react-native-health",
+      "./androidManifestPlugin.js",
       [
         "expo-calendar",
         {
           "calendarPermission": "The app needs to access your calendar."
         }
-      ]
+      ],
+      [
+      "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "34.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "13.4"
+          }
+        }
+        ]
     ]
   }
 }

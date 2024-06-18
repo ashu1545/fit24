@@ -1,14 +1,21 @@
 import { StyleSheet, Text, View, FlatList, Image, ImageBackground } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HeaderNavigation from '../../component/HeaderNavigation';
 import { Button, IconButton } from 'react-native-paper';
 import graph from "../../../assets/Graph.png";
 import boot from "../../../assets/boots 1.png";
 import glass from "../../../assets/glass 1.png"
+import useHealthData from "../../useHealthData";
 
 const ActivityTracker = () => {
+    const [date, setDate] = useState(new Date());
+    const { steps, flights, distance } = useHealthData(date);
+  
+  
 
+    // {(distance / 1000).toFixed(2)}
+    // flights.toString()
 
 
     const uiData = [
@@ -75,7 +82,7 @@ const ActivityTracker = () => {
                             <Image source={boot} alt="glass_image" style={{ width: 50, height: 50 }} resizeMode="cover" />
                         </View>
                         <View style={{ flexDirection: "column" }}>
-                            <Text>2400</Text>
+                            <Text>{steps ? steps.toString() : "0"}</Text>
                             <Text>Foot Steps</Text>
 
                         </View>

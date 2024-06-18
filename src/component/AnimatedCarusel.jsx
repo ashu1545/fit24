@@ -20,6 +20,7 @@ const { width, height } = Dimensions.get('window');
 
 
 import { LinearGradient } from 'expo-linear-gradient';
+import Loader from 'src/screen/Loader/Loader';
 
 const SPACING = 0;
 const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.72 : width * 0.74;
@@ -91,18 +92,31 @@ export default function AnimatedCarusel({navigation}) {
     { id: 3, imageUrl: require("../../assets/SignUpIcon3.png"), title: "Lose a Fat", description: "I have over 20 lbs to lose. I want to drop all this fat and gain muscle mass" },
 
   ]);
+
+  const [loader,setLoader] = React.useState(false);
+
+
+  const handleNavigate = () => {
+    //navigation.navigate('LoginFirstScreen');
+    setLoader(true);
+      setTimeout(() => {
+        setLoader(false);
+        navigation.navigate('LoginFirstScreen');
+      }, 4000);
+    
+  }
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
 
-  if (movies.length === 0) {
-    return <Loading />;
-  }
+  
+
+ 
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <Backdrop movies={movies} scrollX={scrollX} /> */}
-      {/* <StatusBar hidden /> */}
-
+    <>
+    {
+      loader ? <Loader /> :
+      <SafeAreaView style={styles.container}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", flexDirection: "column",marginTop:20 }}>
         <Text style={{ fontSize: 20, fontWeight: "bold",color:"#ffffff" }} >What is your goal ?</Text>
         <Text style={{ color: "#7B6F72", fontSize: 14, textAlign: "center",color:"#ffffff" }}>It will help us to choose a best program for you</Text>
@@ -183,7 +197,7 @@ export default function AnimatedCarusel({navigation}) {
       />
       <View style={styles.secondContainer}>
         <TouchableOpacity style={{ backgroundColor: "#EB8563", width: "100%", justifyContent: "center", alignItems: "center", height:45, borderRadius:30,  }}
-         onPress={() => navigation.navigate("LoginFirstScreen")}
+         onPress={handleNavigate}
         >
           <Text style={{color:"#ffffff"}}>
             Get Started
@@ -195,6 +209,9 @@ export default function AnimatedCarusel({navigation}) {
       </View>
 
     </SafeAreaView>
+
+    }
+    </>
   );
 }
 

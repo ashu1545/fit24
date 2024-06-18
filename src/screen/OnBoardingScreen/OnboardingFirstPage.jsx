@@ -23,6 +23,11 @@ const OnboardingFirstPage = ({ navigation }) => {
                         onPress={() => navigation.navigate('OnBoardingScreen')}
                         textColor='white'
                         buttonColor='#EB8563'
+                        style={{
+                            height: 48,
+                            alignItems:"center",
+                            justifyContent:"center"
+                        }}
                     >
                         Get Started
                     </Button>

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 
 
-const OnboardingPage = ({navigation}) => {
+const OnboardingPage = ({ navigation }) => {
     const [imageIndex, setImageIndex] = useState(0);
-    const [highlightedIndex, setHighlightedIndex] = useState(null); 
+    const [highlightedIndex, setHighlightedIndex] = useState(null);
     const data = [
         { imageUrl: require("../../../assets/On_board.png"), text: 'Don t worry if you have trouble determining your goals, We can help you determine your goals and track your goals', label: "Track Your Goal" },
         { imageUrl: require("../../../assets/On_board1.jpg"), text: 'Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever', label: "Fat Burn" },
@@ -18,9 +18,9 @@ const OnboardingPage = ({navigation}) => {
         setHighlightedIndex(nextIndex);
         setTimeout(() => setHighlightedIndex(null), 300);
 
-        if(imageIndex === 3){
+        if (imageIndex === 3) {
             console.log("hello")
-            
+
             navigation.navigate('LoginScreen');
         }
 
@@ -57,19 +57,19 @@ const OnboardingPage = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:"#090909",
-        color:"#ffffff"
+        backgroundColor: "#090909",
+        color: "#ffffff"
         //justifyContent: 'center',
         //alignItems: 'center',
         //paddingHorizontal:20,
-        
+
     },
     carouselContainer: {
-        flex:1,
+        flex: 1,
         width: '100%',
         //height: 5000,
         //justifyContent:"center",
-        gap:20
+        gap: 20
         //borderColor: 'black',
         //position: 'relative',
     },
@@ -77,25 +77,30 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 550,
         borderRadius: 30,
+        color: "#FCEDE6",
+        backgroundColor: "#F5D1B3",
         //alignItems:"center",
         //justifyContent:"center"
     },
     imageTextContainer: {
         //color: 'black',
-        gap:10,
-        paddingHorizontal:20
-    
+        gap: 10,
+        paddingHorizontal: 20
+
     },
     imageText: {
         color: '#ffffff',
-        fontWeight:'bold',
-        fontSize:25
-        
+        fontWeight: 'bold',
+        fontSize: 25,
+        color: "#D9D9D9",  
+    backgroundColor: "#090909",
+
     },
     imageText1: {
-        color: '#ffffff',
-    
-        
+        color: '#FFFFFF',
+        backgroundColor: '#090909',
+
+
     },
     arrowButton: {
         position: 'absolute',

@@ -27,8 +27,9 @@ import ThirdMealPlanner from "src/screen/mealplanner/Third_page_mealplanner";
 import MealSchedule from "src/screen/mealplanner/Fourth_page_mealSchedule";
 import Result from "src/screen/Progress/Result";
 import Campare from "src/screen/Progress/Campare";
+import Loader from "src/screen/Loader/Loader";
 import { enableScreens } from 'react-native-screens';
-import WalkingAndRunningActivity from "src/screen/WalkingAndRunningActivity/WalkingAndRunningActivity";
+
 
 enableScreens();
 const Stack = createStackNavigator();
@@ -93,11 +94,7 @@ export default function App() {
             component={OnboardingPage}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="LoginScreen"
-            component={Login}
-            options={{ headerShown: false }}
-          />
+          
           <Stack.Screen
             name="SignUpScreen"
             component={SignUp}
@@ -130,8 +127,8 @@ export default function App() {
             options={{ headerShown: true, headerLeft: null }}
           />
           <Stack.Screen
-            name="Walking and Running Activity"
-            component={WalkingAndRunningActivity}
+            name="Loader"
+            component={Loader}
             options={{ headerShown: false, headerLeft: null }}
           />
           <Stack.Screen
@@ -195,6 +192,11 @@ export default function App() {
           <Stack.Screen
             name="SignUpSetting"
             component={AnimatedCarusel}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="LoginScreen"
+            component={Login}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
